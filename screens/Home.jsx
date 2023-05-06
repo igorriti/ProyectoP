@@ -1,15 +1,15 @@
 import React, { useRef, useEffect,useState } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
-import LottieView from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 import { ThemedButton as OriginalThemedButton } from "react-native-really-awesome-button";
-
-const ThemedButton = React.memo(OriginalThemedButton);
-
+const ThemedButton = React.memo(OriginalThemedButton); //REVISAR ESTO
 import { useFonts, LilitaOne_400Regular } from '@expo-google-fonts/lilita-one';
+import LottieView from 'lottie-react-native';
 import staticCup from '../assets/animations/staticCup.json';
 import particleswhite from '../assets/animations/particleswhite.json';
 
 export default function Home() {
+  const navigation = useNavigation();
   const textOpacity = useRef(new Animated.Value(0)).current;
   const button1Opacity = useRef(new Animated.Value(0)).current;
   const button2Opacity = useRef(new Animated.Value(0)).current
@@ -123,7 +123,7 @@ export default function Home() {
       </View>
       {isAnimationLoaded && 
             <>
-              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]} >Iniciar Juego</ThemedButton>
+              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]} onPress={()=>navigation.navigate("GameMenu")}>Iniciar Juego</ThemedButton>
               <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]}>Opciones</ThemedButton>
 
             </>

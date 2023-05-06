@@ -1,16 +1,26 @@
 import { View, Text,Animated, StyleSheet } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
+import { ThemedButton } from "react-native-really-awesome-button";
 
-export default function Card({panHandlers, cardStyle, nextStyle, item}) {
+export default function Card({panHandlers, cardStyle, nextStyle, item, type, action}) {
+  const [config, setConfig] = useState(item.title? "start" : item.icon? "space-between" : "space-evenly")
+
   return (
     <Animated.View
     {...panHandlers}
     style={[styles.card, cardStyle, nextStyle]}  // apply styles
     key={item.id}>
-    <View style={styles.textContainer}>
-      <Text style={styles.titleText}>{item.title}</Text>
+    <View style={[styles.textContainer, { justifyContent: item.title ? "flex-start" : item.icon ? "space-evenly"  : "space-evenly"}]}>
+      {item.title && <Text style={styles.titleText}>{item.title}</Text>}
       <Text style={styles.descriptionText}>{item.description}</Text>
-      {item.icon}
+      {item.icon? 
+       item.icon
+       :
+       type === "badfriends" ?
+        <ThemedButton name="cartman" type="danger" style={styles.button} onPress={action}>Iniciar cuenta atras</ThemedButton>
+       :
+        <ThemedButton name="bruce" type="primary" style={styles.button}>Iniciar cuenta atras</ThemedButton>
+    }
     </View>
   </Animated.View>
   )
@@ -74,5 +84,9 @@ const styles = StyleSheet.create({
       },
       icon: {
         marginRight: 10,
-    },
+      },
+      button: {
+        
+
+      }
 });

@@ -15,14 +15,14 @@ const items = [
         name: 'Malos amigos',
         description: "Deberan sacar una carta y cuando el juego lo indique, deberan señalar a la persona que mas se ajuste a la descripcion de la carta." ,
         icon: <GameIcons name="testicons-overkill" size={50} color="#fff" />,
-        screen: "ClassicMode"  
+        screen: "BadFriendsMode"  
     },
     {   
         id: 3,
         name: '5 segundos',
         description: "Los jugadores deben ponerse en ronda, sacar una carta por turno y responder con tres cosas en cinco segundos.\nSi el jugador falla, debe tomar un trago y el de la derecha debera responder sin repetir respuestas anteriores.\nEl juego continua hasta acertar las 3 respuestas. Una vez hecho esto, es el turno del jugador de la derecha que saco la carta al principio." ,
         icon:  <GameIcons name="testicons-time-bomb" size={50} color="#fff" />,
-        screen: "ClassicMode"  
+        screen: "FiveSecondsMode"  
     },
     {   
         id: 4,
