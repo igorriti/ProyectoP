@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import cartas from '../assets/cards/5seconds';
 import SwipableCards from '../components/General/SwipableCards';
-import CountdownModal from '../components/General/CountdownModal';
+import DrinkModal from '../components/General/DrinkModal';
 
-export default function BadFriendsMode() {
+export default function FiveSecondsMode() {
     const [cards, setCards] = useState((data) => {
         return cartas.sort(() => Math.random() - 0.5);
       });
-    const [ModalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
 
     const showModal = () => {
       setModalVisible(true);
@@ -16,8 +16,8 @@ export default function BadFriendsMode() {
   
     return (
       <>
-        <SwipableCards cards={cards} setCards={setCards} type="badfriends" renderAdditionalComponent={showModal} />
-        <CountdownModal isVisible={ModalVisible} setVisible={setModalVisible} />
+        <SwipableCards cards={cards} setCards={setCards} type="fivesecondsmode" renderAdditionalComponent={showModal} />
+        <DrinkModal isVisible={modalVisible} setVisible={setModalVisible} />
       </>
     );
 }

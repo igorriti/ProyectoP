@@ -13,6 +13,7 @@ import Card from './Card';
 import { ThemedButton } from 'react-native-really-awesome-button';
 import BackgroundMain from './BackgroundMain';
 import BackButton from './BackButton';
+import Timer from '../Infiltrate/Timer';
 
 const { width } = Dimensions.get('screen');
 const SWIPE_THRESHOLD = 0.25 * width;
@@ -21,7 +22,7 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
     const animation = useRef(new Animated.ValueXY()).current;
     const opacity = useRef(new Animated.Value(1)).current;
     const scale = useRef(new Animated.Value(0.9)).current;
-  
+    const [timer,showTimer] = useState(false);
     const _panResponder = useRef(
         PanResponder.create({
           onStartShouldSetPanResponder: () => true,
@@ -64,6 +65,7 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
           },
         })
     ).current;
+    
     const transitionNext = function () {
         Animated.parallel([
           Animated.timing(opacity, {
@@ -89,7 +91,6 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
         });
     }
 
-
     useEffect(() => {
         scale.setValue(0.9);
         opacity.setValue(1);
@@ -101,8 +102,23 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
         <BackButton/>
 
         <BackgroundMain/>
-        <Text style={styles.bgtext}>No hay mas cartas que mostrar :(</Text>
-        <ThemedButton  name="bruce" type="primary" style={{marginTop:30}} onPress={shuffle} >Mezclar de nuevo</ThemedButton>
+        {
+          type === "infiltrate"?
+            <>
+              <Text style={[styles.bgInfiltrateText, {textAlign: "center"}]}>Las cartas estan repartidas.</Text>
+              <Text style={styles.bgInfiltrateText}>En la siguiente fase cada jugador debe decir la palabra relacionada y luego deberan hacer la votacion</Text>
+              <ThemedButton  name="bruce" type="primary" style={{marginTop:30}} onPress={renderAdditionalComponent}> Avanzar </ThemedButton>
+
+            </>
+          :
+          
+          <>
+            <Text style={styles.bgtext}>No hay mas cartas que mostrar :(</Text>
+            <ThemedButton  name="bruce" type="primary" style={{marginTop:30}} onPress={shuffle} >Mezclar de nuevo</ThemedButton>
+
+          </>
+
+        }
         {cards
             .slice(0, 2)
             .reverse()
@@ -131,7 +147,7 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
                  : undefined;
 
               return (
-                <Card panHandlers={panHandlers} cardStyle={cardStyle} nextStyle={nextStyle} item={item} key={item.id} type={type} action={renderAdditionalComponent}/>
+                  <Card panHandlers={panHandlers} cardStyle={cardStyle} nextStyle={nextStyle} item={item} key={item.id} type={type} action={renderAdditionalComponent}/>
               );
         })}
       </View>
@@ -149,6 +165,16 @@ const styles = StyleSheet.create({
   bgtext:{
       color: '#444',
       fontSize: 18,
+  },
+  bgInfiltrateText:{
+      width: "60%",
+      textAlign: "justify",
+      color: '#eee',
+      fontSize: 18,
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(0,0,0,1)',
+      padding: 10,
+      borderRadius: 10,
   }
 });
 

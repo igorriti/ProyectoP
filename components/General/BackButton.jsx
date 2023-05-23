@@ -26,6 +26,5 @@ const styles = StyleSheet.create({
       zIndex: 40,
       padding: 5,
     },
-    // ... other styles
   });
   

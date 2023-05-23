@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import DrinkModal from './DrinkModal';
-
-const Timer = () => {
-  const [seconds, setSeconds] = useState(300);
+import { Audio } from 'expo-av';
+import { Ionicons } from '@expo/vector-icons';
+const Timer = ({action}) => {
+  const [seconds, setSeconds] = useState(5);
   const [running, setRunning] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
 
   const toggleTimer = () => {
+    if (running) {
+      resetTimer();
+    }
     setRunning(!running);
   };
 
   const resetTimer = () => {
-    setSeconds(300);
+    //Wait 1 second before reseting the timer
+    setTimeout(() => {
+      
+      setSeconds(5);
+    }, 2000);
+  };
+
+  const playSound = async () => {
+    const sound = new Audio.Sound();
+    try {
+      await sound.loadAsync(require('../../assets/sounds/wrongBuzzer.mp3'));
+      await sound.playAsync();
+    } catch (error) {
+      console.log('Error loading or playing sound:', error);
+    }
   };
 
   useEffect(() => {
@@ -22,7 +38,8 @@ const Timer = () => {
       }, 1000);
       return () => clearTimeout(timer);
     } else if (seconds === 0) {
-      setModalVisible(true);
+      playSound();
+      action()
       resetTimer();
     }
   }, [running, seconds]);
@@ -36,10 +53,10 @@ const Timer = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.timer}>{displayTime(seconds)}</Text>
-      <TouchableOpacity style={styles.button} onPress={toggleTimer}>
-        <Text style={styles.buttonText}>{running ? 'Stop' : 'Play'}</Text>
+      <TouchableOpacity style={[styles.button , {backgroundColor: running ? "#db1a37" : "#6a87fc"}] } onPress={toggleTimer}>
+        
+        <Text style={styles.buttonText }>{running ? <Ionicons name="stop" size={30}/>  : <Ionicons name="play" size={30}/> }</Text>
       </TouchableOpacity>
-      <DrinkModal visible={modalVisible} setVisible={setModalVisible} />
     </View>
   );
 };
@@ -51,13 +68,19 @@ const styles = StyleSheet.create({
   timer: {
     fontSize: 40,
     fontWeight: 'bold',
+    color: 'white'
   },
   button: {
-    backgroundColor: 'blue',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    marginTop: 10,
+    backgroundColor: '#6a87fc',
+    padding: 10,
+    borderRadius: 50,
+    marginTop: 40,
+    width: 70,
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 4,
+
   },
   buttonText: {
     color: 'white',

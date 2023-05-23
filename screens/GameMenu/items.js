@@ -26,24 +26,24 @@ const items = [
     },
     {   
         id: 4,
-        name: 'Match',
-        description: "Dos jugadores seran seleccionados al azar, deberan cerrar los ojos y se le leera una consigna. Cuando el juego lo indique, deberan responder quien de los dos es mas probable que cumpla con la consigna. Si los dos jugadores no coinciden, deberan tomar un trago." ,
-        icon:  <GameIcons name="testicons-thumb-up" size={50} color="#fff" />,
-        screen: "ClassicMode"  
-    },
-    {   
-        id: 5,
         name: 'Ruleta polaca',
         description: "Uno a uno deberan disparar la pistola de shots. Si disparan y sale el shot, deberan tomar.\nSe pueden configurar la cantidad de disparos de shots." ,
         icon: <GameIcons name="testicons-reload-gun-barrel" size={50} color="#fff" />,
-        screen: "ClassicMode"  
+        screen: "RuRoulette"
+    },
+    {   
+        id: 5,
+        name: 'El infiltrado',
+        description: "Cada jugador debera sacar una carta y leerla en secreto. A algunos les tocara ser el infiltrado y a los demas una misma palabra. \n En ronda los jugadores deberan decir una palabra que se relacione con la que les toco. El infiltrado no la sabra pero debera hacer lo mismo,  sin que los demas se den cuenta que es el infiltrado. \n Al final de la ronda, los jugadores deberan votar quien creen que es el infiltrado. Si el infiltrado es descubierto, debera tomar un trago. Si no, los demas jugadores deberan tomar un trago." ,
+        icon: <GameIcons name="testicons-spy" size={50} color="#fff" />,
+        screen: "Infiltrate"  
     },
 
     {   id: 6,
         name: 'Verdad o shot',
         description: "Los jugadores deberan sacar una carta y responder la pregunta que le toque. Si no quiere responder, debera tomar un trago." ,
         icon: <GameIcons name="testicons-booze" size={50} color="#fff" />,
-        screen: "ClassicMode"  
+        screen: "InfiltrateTimePart"  
     },
     {   
         id: 7,
@@ -58,6 +58,7 @@ const items = [
         icon: <GameIcons name="testicons-horseshoe" size={50} color="#fff" />,
         screen: "ClassicMode"  
     },
+    
 
   
   ];

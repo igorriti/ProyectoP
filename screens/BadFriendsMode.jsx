@@ -1,5 +1,5 @@
 // BadFriendsMode.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cartas from '../assets/cards/BadFriends';
 import SwipableCards from '../components/General/SwipableCards';
 import CountdownModal from '../components/General/CountdownModal';
@@ -13,10 +13,10 @@ export default function BadFriendsMode() {
     const showModal = () => {
       setModalVisible(true);
     }
-  
+
     return (
       <>
-        <SwipableCards cards={cards} setCards={setCards} type="badfriends" renderAdditionalComponent={showModal} />
+        <SwipableCards cards={cards} setCards={setCards} type="badfriends" renderAdditionalComponent={showModal}  />
         <CountdownModal isVisible={ModalVisible} setVisible={setModalVisible} />
       </>
     );
