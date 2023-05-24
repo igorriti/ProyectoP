@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import cartas from '../assets/cards/BadFriends';
 import SwipableCards from '../components/General/SwipableCards';
 import CountdownModal from '../components/General/CountdownModal';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import BackButton from '../components/General/BackButton';
 
 export default function BadFriendsMode() {
     const [cards, setCards] = useState((data) => {
@@ -15,9 +17,10 @@ export default function BadFriendsMode() {
     }
 
     return (
-      <>
+      <SafeAreaView style={{flex:1, backgroundColor: "#000"}}>
+        <BackButton/>
         <SwipableCards cards={cards} setCards={setCards} type="badfriends" renderAdditionalComponent={showModal}  />
         <CountdownModal isVisible={ModalVisible} setVisible={setModalVisible} />
-      </>
+      </SafeAreaView>
     );
 }

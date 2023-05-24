@@ -3,9 +3,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from 'expo-font';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 import Splash from './screens/Splash';
 import Home from './screens/Home';
 import GameMenu from './screens/GameMenu/GameMenu';
+
+import Drinks from './screens/Drinks/Drinks';
+import DrinkDetails from './screens/Drinks/DrinkDetails';
 
 import ClassicMode from './screens/ClassicMode';
 import BadFriendsMode from './screens/BadFriendsMode';
@@ -14,7 +19,7 @@ import RuRoulette from './screens/RuRoulette';
 import InfiltrateMode from './screens/Infiltrate/InfiltrateMode';
 import InfiltrateCardsPart from './screens/Infiltrate/InfiltrateCardsPart';
 import InfiltrateTimePart from './screens/Infiltrate/InfiltrateTimePart';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 const Stack = createNativeStackNavigator();
 
 
@@ -24,14 +29,18 @@ export default function App() {
   });
   return (
     <GestureHandlerRootView style={{flex: 1}}>
+      <StatusBar style="light" backgroundColor="black" />
 
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="GameMenu" >
+        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Splash" >
           <Stack.Screen
-            name="Splash"
+            name="Splash" 
             component={Splash}
           />
           <Stack.Screen name="Home" component={Home}  options={{ animation: "none"}}/>
+          <Stack.Screen name="Drinks" component={Drinks}  options={{ animation: "default"}}/>
+          <Stack.Screen name="DrinkDetails" component={DrinkDetails}  options={{ animation: "default"}}/>
+
           <Stack.Screen name="GameMenu" component={GameMenu}  options={{ animation: "default"}}/>
           <Stack.Screen name="ClassicMode" component={ClassicMode}  options={{ animation: "default"}}/>
           <Stack.Screen name="BadFriendsMode" component={BadFriendsMode}  options={{ animation: "default"}}/>

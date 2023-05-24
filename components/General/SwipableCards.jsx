@@ -99,7 +99,6 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
     
   return (
       <View style={styles.container}>
-        <BackButton/>
 
         <BackgroundMain/>
         {

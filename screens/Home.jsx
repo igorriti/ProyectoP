@@ -123,8 +123,8 @@ export default function Home() {
       </View>
       {isAnimationLoaded && 
             <>
-              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]} onPress={()=>navigation.navigate("GameMenu")}>Iniciar Juego</ThemedButton>
-              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]}>Opciones</ThemedButton>
+              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]} onPress={()=>navigation.navigate("GameMenu")}>Jugar</ThemedButton>
+              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]} onPress={()=>navigation.navigate("Drinks")}>Tragos</ThemedButton>
 
             </>
 

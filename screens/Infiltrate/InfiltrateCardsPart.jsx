@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import Gameicon from '../../components/General/Gameicon';
 import palabras from '../../assets/cards/Infiltrate' 
 import SwipableCards from '../../components/General/SwipableCards';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import BackButton from '../../components/General/BackButton';
 
 export default function InfiltrateCardsPart() {
     const navigation = useNavigation();
@@ -92,8 +93,9 @@ export default function InfiltrateCardsPart() {
     }
 
     return (
-        <>
-            <SwipableCards cards={cards} setCards={setCards}  type="infiltrate" renderAdditionalComponent={advance}/>
-        </>
+      <SafeAreaView style={{flex:1, backgroundColor: "#000"}}>
+        <BackButton/>
+        <SwipableCards cards={cards} setCards={setCards}  type="infiltrate" renderAdditionalComponent={advance}/>
+      </SafeAreaView>
     );
 }

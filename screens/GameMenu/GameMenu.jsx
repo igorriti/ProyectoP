@@ -9,9 +9,11 @@ import ExplanationModal from '../../components/GameMenu/ExplanationModal';
 import MenuItem from '../../components/GameMenu/MenuItem';
 import items from './items';
 import PlayersModal from '../../components/GameMenu/PlayersModal';
+import { useNavigation } from '@react-navigation/native';
 const numColumns = 2;
 
 export default function GameMenu() {
+    const navigation = useNavigation();
     const [games, setGames] = useState(items);
     const [modalVisible, setModalVisible] = useState(false);
     const [playersModalVisible, setPlayersModalVisible] = useState(false);
