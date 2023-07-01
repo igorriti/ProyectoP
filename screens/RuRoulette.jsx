@@ -4,18 +4,23 @@ import BackgroundMain from '../components/General/BackgroundMain';
 import BackButton from '../components/General/BackButton';
 import FireButton from '../components/RuRoulette/FireButton';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import ExplanationModal from '../components/General/ExplanationModal';
+import InfoButton from '../components/General/InfoButton';
 import DrinkModal from '../components/General/DrinkModal';
 import Gun from '../components/RuRoulette/Gun';
 import { Audio } from 'expo-av';
+//TODO: 
+//Add shots configuration
 
-export default function RuRoulette() {
+export default function RuRoulette({route}) {
     const [roulette, setRoulette] = useState([0,0,0,1,0,0])
     const [modalVisible, setModalVisible] = useState(false)
     const [sound, setSound] = useState(null);
     const [sound2, setSound2] = useState(null);
     const [rotation, setRotation] = useState(false)
-
+    const [infoText,setInfoText] = useState(route.params.description);
+    const [name, setName] = useState(route.params.name);
+    const [explanationModalVisible, setExplanationModalVisible] = useState(false);
     const spin = () => {
         //Set roulette to all 0s and assign 1 to a random index
         const randomIndex = Math.floor(Math.random() * 6)
@@ -77,12 +82,14 @@ export default function RuRoulette() {
   return (
     <SafeAreaView style={styles.container}>
         <BackButton/>
+        <InfoButton onPress={()=>setExplanationModalVisible(true)}/>
         <BackgroundMain/>
 
         {/* <Barrel onSpin={spin} rot={rotation.value}/> */}
         <Gun spin={spin} rotation={rotation}/>
         <FireButton handlePress={shoot}/>
         <DrinkModal isVisible={modalVisible} setVisible={setModalVisible} explosion={true}/>
+        <ExplanationModal isVisible={explanationModalVisible} onClose={()=>setExplanationModalVisible(false)} title={name} content={infoText}/>
     </SafeAreaView>
   )
 }

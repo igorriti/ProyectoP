@@ -7,8 +7,10 @@ import SwipableCards from '../../components/General/SwipableCards';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BackButton from '../../components/General/BackButton';
+import ExplanationModal from '../../components/General/ExplanationModal';
+import InfoButton from '../../components/General/InfoButton';
 
-export default function InfiltrateCardsPart() {
+export default function InfiltrateCardsPart({route}) {
     const navigation = useNavigation();
     const isFocused = useIsFocused();
     const [firstTime, setFirstTime] = useState(true);
@@ -17,7 +19,10 @@ export default function InfiltrateCardsPart() {
     const [players, setPlayers] = useState(1);
     const [playerIds, setPlayerIds] = useState([]);
     const [cards, setCards] = useState([]);
-
+    const [infoText,setInfoText] = useState(route.params.description);
+    const [name, setName] = useState(route.params.name);
+    const [explanationModalVisible, setExplanationModalVisible] = useState(false);
+  
     const shuffle = (p) => {
       // Randomly select infiltrate positions
       let arrInfiltrates, arrPlayerIds, intPlayers;
@@ -59,7 +64,6 @@ export default function InfiltrateCardsPart() {
           icon,
         };
       });
-      console.log("cards",cards);
 
       return cards;
     }
@@ -89,13 +93,20 @@ export default function InfiltrateCardsPart() {
 
     const advance = () => {
       // Advance to next screen
-      navigation.navigate('InfiltrateTimePart');
+      navigation.navigate('InfiltrateTimePart',{
+        name: name,
+        description: infoText,
+      });
     }
 
     return (
       <SafeAreaView style={{flex:1, backgroundColor: "#000"}}>
         <BackButton/>
+        <InfoButton onPress={()=>setExplanationModalVisible(true)}/>
+
         <SwipableCards cards={cards} setCards={setCards}  type="infiltrate" renderAdditionalComponent={advance}/>
+        <ExplanationModal isVisible={explanationModalVisible} onClose={()=>setExplanationModalVisible(false)} title={name} content={infoText}/>
+
       </SafeAreaView>
     );
 }

@@ -8,12 +8,17 @@ import { AntDesign } from '@expo/vector-icons';
 import Gameicon from '../../components/General/Gameicon';
 import { useNavigation } from '@react-navigation/native';
 import { ThemedButton } from 'react-native-really-awesome-button';
+import ExplanationModal from '../../components/General/ExplanationModal';
+import InfoButton from '../../components/General/InfoButton';
 
-export default function InfiltrateMode() {
+export default function InfiltrateMode({route}) {
   const [infiltrates, setInfiltrates] = useState(1);
   const [time, setTime] = useState(5);
   const [maxInfiltrates, setMaxInfiltrates] = useState(1);
   const navigation = useNavigation();
+  const [infoText,setInfoText] = useState(route.params.description);
+  const [name, setName] = useState(route.params.name);
+  const [explanationModalVisible, setExplanationModalVisible] = useState(false);
 
   useEffect(() => {
     const loadSettings = async () => {
@@ -26,7 +31,11 @@ export default function InfiltrateMode() {
         setInfiltrates(suggestedInfiltrates);
       }
       if(storedInfiltrates) {
-        setInfiltrates(JSON.parse(storedInfiltrates));
+        if (storedInfiltrates < maxInfiltrates) {
+          //TODO 
+          // PREGUNTAR A TADE QUE LE GUSTA MAS
+          setInfiltrates(JSON.parse(storedInfiltrates));
+        }
       }
       if(storedTime) {
         setTime(JSON.parse(storedTime));
@@ -70,12 +79,17 @@ export default function InfiltrateMode() {
   const advance = async () => {
     await AsyncStorage.setItem('infiltrates', JSON.stringify(infiltrates));
     await AsyncStorage.setItem('time', JSON.stringify(time));
-    navigation.navigate('InfiltrateCardsPart');
+    navigation.navigate('InfiltrateCardsPart', {
+      name : name,
+      description : infoText,
+    });
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <BackButton/>
+      <InfoButton onPress={()=>setExplanationModalVisible(true)}/>
+
       <BackgroundMain/>
       <View style={styles.optionsContainer}>
         <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>Configura tu partida</Text>
@@ -122,6 +136,8 @@ export default function InfiltrateMode() {
           Iniciar juego
         </ThemedButton>
       </View>
+      <ExplanationModal isVisible={explanationModalVisible} onClose={()=>setExplanationModalVisible(false)} title={name} content={infoText}/>
+
     </SafeAreaView>
   )
 }

@@ -10,14 +10,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.labs.vasopolaco"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.igorriti.vasopolaco"
+      "package": "com.labs.vasopolaco"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -26,6 +27,13 @@
       "eas": {
         "projectId": "d948be02-c80e-4af3-83f5-7874152305b4"
       }
-    }
+    },
+    "plugins": [
+       ["@config-plugins/react-native-google-cast",
+      {
+        "iosReceiverAppId": "5174EE82",
+        "androidReceiverAppId": "5174EE82"
+      }]
+    ]
   }
 }

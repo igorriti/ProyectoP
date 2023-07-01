@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 import { FontAwesome,Ionicons } from '@expo/vector-icons';
 import BackgroundMain from '../../components/General/BackgroundMain';
 import BackButton from '../../components/General/BackButton';
-import ExplanationModal from '../../components/GameMenu/ExplanationModal';
+import ExplanationModal from '../../components/General/ExplanationModal';
 import MenuItem from '../../components/GameMenu/MenuItem';
 import items from './items';
 import PlayersModal from '../../components/GameMenu/PlayersModal';
@@ -20,8 +20,7 @@ export default function GameMenu() {
     const [modalTitle, setModalTitle] = useState('');
     const [modalContent, setModalContent] = useState('');
     const [loadAnimation, setLoadAnimation] = useState(false);
-
-
+    
 
     const handleItemPress = (title, content) => {
       setModalTitle(title);
@@ -45,7 +44,7 @@ export default function GameMenu() {
 
         const timer = setTimeout(() => {
           setLoadAnimation(true);
-        }, 1000); // Adjust the delay before starting the animations
+        }, 500); // Adjust the delay before starting the animations
     
         return () => clearTimeout(timer);
     }, []);
@@ -71,7 +70,7 @@ export default function GameMenu() {
                 index={index}
                 handleItemPress={handleItemPress}
                 loadAnimation={loadAnimation}
-
+                setPlayersModalVisible={setPlayersModalVisible} // Pass down the function
                 fontsLoaded={fontsLoaded}
               /> 
             )}

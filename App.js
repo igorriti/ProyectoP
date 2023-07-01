@@ -19,7 +19,7 @@ import RuRoulette from './screens/RuRoulette';
 import InfiltrateMode from './screens/Infiltrate/InfiltrateMode';
 import InfiltrateCardsPart from './screens/Infiltrate/InfiltrateCardsPart';
 import InfiltrateTimePart from './screens/Infiltrate/InfiltrateTimePart';
-
+import Cast from './screens/Cast';
 const Stack = createNativeStackNavigator();
 
 
@@ -32,7 +32,8 @@ export default function App() {
       <StatusBar style="light" backgroundColor="black" />
 
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Splash" >
+        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Cast" >
+          <Stack.Screen name="Cast" component={Cast}  options={{ animation: "none"}}/>
           <Stack.Screen
             name="Splash" 
             component={Splash}

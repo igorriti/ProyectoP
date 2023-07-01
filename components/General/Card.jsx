@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
       },
       descriptionText: {
+        paddingHorizontal: 20,
         fontSize: 20,
         textAlign: 'center',
         color: '#fff',

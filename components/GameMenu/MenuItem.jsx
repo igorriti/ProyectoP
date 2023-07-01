@@ -2,16 +2,58 @@ import { View, Text,Animated,TouchableOpacity,StyleSheet} from 'react-native'
 import React, {useEffect} from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { set } from 'react-native-reanimated';
 
-export default function MenuItem({ item, index, handleItemPress, loadAnimation, fontsLoaded }) {
+export default function MenuItem({ item, index, handleItemPress, loadAnimation, fontsLoaded,  setPlayersModalVisible }) {
     const translateY = new Animated.Value(-50);
     const opacity = new Animated.Value(0);
     const initialDelay = 290;
     const navigation = useNavigation();
 
-    const onPress = () => {
-      //navigate to classicMode screen
-      navigation.navigate(item.screen);
+    const isExpired = (timestamp) => {
+      const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+      const now = new Date().getTime();
+      const difference = now - parseInt(timestamp, 10);
+    
+      return difference >= oneDay;
+    };
+
+    const onPress = async () => {
+      if(item.id == 5) {
+        try {
+          const timestamp = await AsyncStorage.getItem("timestamp");
+          if (!timestamp || isExpired(timestamp)) {
+            // If timestamp is not set or it's expired, we don't fetch players
+            //Delete all players
+            await AsyncStorage.removeItem('players');
+            await AsyncStorage.removeItem('timestamp');
+            setPlayersModalVisible(true);
+            return;
+          } 
+          const value = await AsyncStorage.getItem('players');
+          if (value !== null) {
+            const players = JSON.parse(value);
+            if (players.length >= 3) {
+              navigation.navigate(item.screen,{
+                name : item.name,
+                description: item.description,
+              });
+            } else {
+              setPlayersModalVisible(true);
+            }
+          } else {
+            setPlayersModalVisible(true);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        navigation.navigate(item.screen,{
+          name : item.name,
+          description: item.description,
+        });
+      }
     };
     const onLongPress = () => {
       handleItemPress(item.name, item.description);

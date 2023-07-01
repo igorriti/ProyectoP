@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Animated, FlatList, TextInput
 import { Ionicons,AntDesign } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function PlayersModal({ isVisible, onClose }) {
+export default function PlayersModal({ isVisible, onClose, toggle }) {
   const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState('');
   const [isAddPlayerModalVisible, setIsAddPlayerModalVisible] = useState(false);
@@ -57,6 +57,12 @@ export default function PlayersModal({ isVisible, onClose }) {
   
     const updatedPlayers = [...players, newPlayer];
     await AsyncStorage.setItem('players', JSON.stringify(updatedPlayers));
+    let storedTimestamp = await AsyncStorage.getItem('timestamp');
+
+    if (!storedTimestamp || isExpired(storedTimestamp)) {
+      storedTimestamp = new Date().getTime(); // reset timestamp
+      await AsyncStorage.setItem('timestamp', storedTimestamp.toString());
+    }
     setPlayers(updatedPlayers);
     handleAddPlayerModalClose();
     setInputError(''); // clear error on successful add
@@ -68,13 +74,26 @@ export default function PlayersModal({ isVisible, onClose }) {
     const updatedPlayers = [...players];
     updatedPlayers.splice(index, 1);
     await AsyncStorage.setItem('players', JSON.stringify(updatedPlayers));
+    if (updatedPlayers.length === 0) {
+      await AsyncStorage.removeItem('timestamp');
+    }
     setPlayers(updatedPlayers);
   };
 
   const deleteAllPlayers = async () => {
     await AsyncStorage.removeItem('players');
+    await AsyncStorage.removeItem('timestamp');
     setPlayers([]);
   };
+
+  const isExpired = (timestamp) => {
+    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    const now = new Date().getTime();
+    const difference = now - parseInt(timestamp, 10);
+  
+    return difference >= oneDay;
+  };
+  
 
   useEffect(() => {
     if (isVisible) {

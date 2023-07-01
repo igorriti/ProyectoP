@@ -27,7 +27,7 @@ const items = [
     {   
         id: 4,
         name: 'Ruleta polaca',
-        description: "Uno a uno deberan disparar la pistola de shots. Si disparan y sale el shot, deberan tomar.\nSe pueden configurar la cantidad de disparos de shots." ,
+        description: "Uno a uno deberan disparar la pistola de shots. Si disparan y sale el shot, deberan tomar.\n" ,
         icon: <GameIcons name="testicons-reload-gun-barrel" size={50} color="#fff" />,
         screen: "RuRoulette"
     },

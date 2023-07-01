@@ -12,8 +12,10 @@ import clamp from 'clamp';
 import Card from './Card';
 import { ThemedButton } from 'react-native-really-awesome-button';
 import BackgroundMain from './BackgroundMain';
-import BackButton from './BackButton';
-import Timer from '../Infiltrate/Timer';
+import LottieView from 'lottie-react-native';
+import swipeLeftAnimation from '../../assets/animations/swipeLeft.json';
+import swipeRightAnimation from '../../assets/animations/swipeRight.json';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('screen');
 const SWIPE_THRESHOLD = 0.25 * width;
@@ -22,6 +24,10 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
     const animation = useRef(new Animated.ValueXY()).current;
     const opacity = useRef(new Animated.Value(1)).current;
     const scale = useRef(new Animated.Value(0.9)).current;
+    const lottieOpacity = useRef(new Animated.Value(1)).current;
+    const lottieRef = useRef(null);
+
+    const [currentAnimation, setCurrentAnimation] = useState(swipeLeftAnimation);
     const [timer,showTimer] = useState(false);
     const _panResponder = useRef(
         PanResponder.create({
@@ -29,6 +35,8 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
           onMoveShouldSetPanResponder: () => true,
           onPanResponderMove: (event, gesture) => {
             animation.setValue({ x: gesture.dx, y: gesture.dy });
+            fadeOutLottie(true);
+
           },
           onPanResponderRelease: (e, { dx, dy, vx, vy }) => {
             let velocity;
@@ -63,8 +71,73 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
               }).start();
             }
           },
+          onPanResponderGrant: () => {
+            fadeOutLottie(true);
+          },
+
+          
         })
     ).current;
+    const fadeAnim = useRef(new Animated.Value(1)).current;  // Initial value for opacity: 1
+
+    const fadeIn = () => {
+      // Will change fadeAnim value to 1 in 2 seconds
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 3000,
+        useNativeDriver: true,
+      }).start(() => setTimeout(fadeOut, 1000)); // Starts the animation and calls fadeOut after a 1 second delay
+    };
+  
+    const fadeOut = () => {
+      // Will change fadeAnim value to 0 in 2 seconds
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 3000,
+        useNativeDriver: true,
+      }).start(() => setTimeout(fadeIn, 1000)); // Starts the animation and calls fadeIn after a 1 second delay
+    };
+
+    const fadeInLottie = () => {
+      Animated.timing(lottieOpacity, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }).start( );
+    };
+    
+    const fadeOutLottie = (stop=false) => {
+      Animated.timing(lottieOpacity, {
+        toValue: 0,
+        duration: 1000,
+        useNativeDriver: true,
+      }).start(
+        () => {
+          if(stop){
+            if (lottieRef.current)
+              lottieRef.current.pause()
+          }
+        }
+      );
+    };
+
+    const toggleAnimation = () => {
+      Animated.timing(lottieOpacity, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }).start(() => {
+        setTimeout(() => {
+          setCurrentAnimation(
+            currentAnimation === swipeLeftAnimation
+              ? swipeRightAnimation
+              : swipeLeftAnimation
+          );
+          fadeInLottie();
+        }, 500); // 1000ms delay
+      });
+    };  
+
     
     const transitionNext = function () {
         Animated.parallel([
@@ -92,6 +165,10 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
     }
 
     useEffect(() => {
+        fadeIn();
+    }, []);
+
+    useEffect(() => {
         scale.setValue(0.9);
         opacity.setValue(1);
         animation.setValue({ x: 0, y: 0 });
@@ -107,7 +184,20 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
               <Text style={[styles.bgInfiltrateText, {textAlign: "center"}]}>Las cartas estan repartidas.</Text>
               <Text style={styles.bgInfiltrateText}>En la siguiente fase cada jugador debe decir la palabra relacionada y luego deberan hacer la votacion</Text>
               <ThemedButton  name="bruce" type="primary" style={{marginTop:30}} onPress={renderAdditionalComponent}> Avanzar </ThemedButton>
-
+              <Animated.Text
+                style={{
+                  position:"absolute",
+                  top:50,
+                  width: 300,
+                  color: '#eee',
+                  textAlign:'center',
+                  fontSize:14,
+                  fontWeight: 'bold',
+                  opacity: fadeAnim  // Bind opacity to animated value
+                }}
+              >
+                Toca la carta, leela, descartala hacia uno de los lados y pasa el celular al de tu derecha
+              </Animated.Text>
             </>
           :
           
@@ -116,8 +206,9 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
             <ThemedButton  name="bruce" type="primary" style={{marginTop:30}} onPress={shuffle} >Mezclar de nuevo</ThemedButton>
 
           </>
-
+          
         }
+        
         {cards
             .slice(0, 2)
             .reverse()
@@ -149,6 +240,22 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
                   <Card panHandlers={panHandlers} cardStyle={cardStyle} nextStyle={nextStyle} item={item} key={item.id} type={type} action={renderAdditionalComponent}/>
               );
         })}
+        {
+          type !== "infiltrate"&&
+            <Animated.View style={{position: 'absolute', alignSelf: 'center', top: 0, opacity: lottieOpacity }}>
+              <LottieView
+                  ref={lottieRef}
+                  key={currentAnimation}
+                  source={currentAnimation}
+                  autoPlay
+                  loop={false}
+                  onAnimationFinish={toggleAnimation}
+                  style={{ width: 200, height: 200 }}
+                />
+          </Animated.View>
+        }
+
+
       </View>
   );
 };

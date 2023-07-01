@@ -19,7 +19,7 @@ const cartas = [
         id: 2,
         title: "",
         description: "Mencionar frases conocidas de Ricardo fort, quien repite o no sabe que decir toma",
-        icon : null
+        icon : <Gameicon name="testicons-ricky" size={150} color="white" /> //Ricky Gameicon
 
     },
     {
@@ -165,7 +165,7 @@ const cartas = [
         id: 24,
         title: "",
         description: "Deci la formacion de la scaloneta en la final del mundo. Si acertas repartis 3 tragos. Sino tomas 3",
-        icon : null
+        icon : <Gameicon name="testicons-messi" size={150} color="white" /> //Messi Gameicon
 
     },
     {
@@ -370,10 +370,7 @@ const cartas = [
         description : "Mencionar formas de decirle al pene, quien repite o no sabe que decir toma.",
         icon : <Gameicon name="testicons-banana" size={80} color="white" />  
     },
-    {
-        id: 56,
-    
-    }
+
 
 
 
