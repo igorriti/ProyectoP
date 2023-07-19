@@ -29,7 +29,7 @@ export default function DrinkDetails({ route }) {
         <View style={styles.titleContainer}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.description}>{description}</Text>
-            <Image source={{ uri: photo }} style={styles.image}  />
+            <Image source={photo} style={styles.image}  />
 
         </View>
 

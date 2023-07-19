@@ -19,7 +19,8 @@ import RuRoulette from './screens/RuRoulette';
 import InfiltrateMode from './screens/Infiltrate/InfiltrateMode';
 import InfiltrateCardsPart from './screens/Infiltrate/InfiltrateCardsPart';
 import InfiltrateTimePart from './screens/Infiltrate/InfiltrateTimePart';
-import Cast from './screens/Cast';
+import HorseRacing from './screens/HorseRacing';
+import Fulvo from './screens/Fulvo';
 const Stack = createNativeStackNavigator();
 
 
@@ -32,8 +33,7 @@ export default function App() {
       <StatusBar style="light" backgroundColor="black" />
 
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Cast" >
-          <Stack.Screen name="Cast" component={Cast}  options={{ animation: "none"}}/>
+        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Home" >
           <Stack.Screen
             name="Splash" 
             component={Splash}
@@ -50,7 +50,9 @@ export default function App() {
           <Stack.Screen name="Infiltrate" component={InfiltrateMode}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateCardsPart" component={InfiltrateCardsPart}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateTimePart" component={InfiltrateTimePart}  options={{ animation: "default"}}/>
-          
+          {/* ACA VA EL VERDAD O SHOT Y EL YO NUNCA NUNCA */}
+          <Stack.Screen name="HorseRacing" component={HorseRacing}  options={{ animation: "none"}}/>
+          <Stack.Screen name="Fulvo" component={Fulvo}  options={{ animation: "none"}}/>
         </Stack.Navigator>
 
 

@@ -20,7 +20,7 @@ export default function MenuItem({ item, index, handleItemPress, loadAnimation, 
     };
 
     const onPress = async () => {
-      if(item.id == 5) {
+      if(item.id == 5 || item.id == 8) {
         try {
           const timestamp = await AsyncStorage.getItem("timestamp");
           if (!timestamp || isExpired(timestamp)) {

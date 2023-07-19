@@ -29,7 +29,7 @@ const DrinkItem = ({ item, viewableItems, onPress }) => {
       onTouchEnd={gestureHandler.onEnd}
     >
       <Pressable   onPress={() => navigation.navigate('DrinkDetails', item)} style={styles.pressable}>
-        <Image style={styles.image} source={{ uri: item.photo }} />
+        <Image style={styles.image} source={item.photo} />
         <View style={styles.details}>
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.description}>{item.description}</Text>

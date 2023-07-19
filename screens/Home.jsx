@@ -5,7 +5,7 @@ import { ThemedButton as OriginalThemedButton } from "react-native-really-awesom
 const ThemedButton = React.memo(OriginalThemedButton); //REVISAR ESTO
 import { useFonts, LilitaOne_400Regular } from '@expo-google-fonts/lilita-one';
 import LottieView from 'lottie-react-native';
-import staticCup from '../assets/animations/staticCup.json';
+import staticCup from '../assets/animations/staticCupNew.json';
 import particleswhite from '../assets/animations/particleswhite.json';
 
 export default function Home() {

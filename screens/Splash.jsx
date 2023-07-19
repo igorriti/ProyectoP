@@ -8,10 +8,11 @@ export default function Splash({ navigation }) {
   const translateX = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(1)).current;
+
   const playSound = async () => {
     const soundObject = new Audio.Sound();
     try {
-      await soundObject.loadAsync(require('../assets/sounds/Beer1.mp3'));
+      await soundObject.loadAsync(require('../assets/sounds/appear.mp3'));
       await soundObject.playAsync();
     } catch (error) {
       console.log('Error playing sound:', error);
@@ -19,11 +20,11 @@ export default function Splash({ navigation }) {
   };
   
   useEffect(() => {
-
+    playSound()
     Animated.sequence([
       Animated.timing(fadeAnim, {
         toValue: 0,
-        duration: 3000,
+        duration: 2500,
         useNativeDriver: true,
       }),
       Animated.parallel([
@@ -67,7 +68,7 @@ export default function Splash({ navigation }) {
             height: 500,
             backgroundColor: '#000',
           }}
-          source={require('../assets/animations/splash.json')}
+          source={require('../assets/animations/cupNew.json')}
           loop={false}
         />
       </Animated.View>

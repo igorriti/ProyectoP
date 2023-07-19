@@ -1,6 +1,5 @@
-import { AntDesign,MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign,MaterialCommunityIcons,FontAwesome } from '@expo/vector-icons';
 import GameIcons from '../../components/General/Gameicon';
-
 const items = [
     {   
         id: 1,
@@ -38,7 +37,7 @@ const items = [
         icon: <GameIcons name="testicons-spy" size={50} color="#fff" />,
         screen: "Infiltrate"  
     },
-
+    
     {   id: 6,
         name: 'Verdad o shot',
         description: "Los jugadores deberan sacar una carta y responder la pregunta que le toque. Si no quiere responder, debera tomar un trago." ,
@@ -56,9 +55,23 @@ const items = [
         name: 'Carrera de caballos',
         description: "Te crees una persona con suerte? \nEn este juego deberas apostar una cierta cantidad de tragos a un caballo. Si tu caballo gana, podras repartir los tragos que apostaste a los demas jugadores.\nPero ojo, para apostar tragos debes tomarlos primero.",
         icon: <GameIcons name="testicons-horseshoe" size={50} color="#fff" />,
-        screen: "ClassicMode"  
+        screen: "HorseRacing"  
     },
-    
+    {
+        id: 9,
+        name: 'Fulvo',
+        description: "Saldra un escudo de un club argentino y deberas decir el nombre del club. Si no lo sabes, deberas tomar 2 tragos.",
+        icon: <GameIcons name="testicons-soccer-ball" size={50} color="#fff" />,
+        screen: "Fulvo"
+    },
+    {
+        id: 10,
+        name: 'Mix',
+        description: "En este juego se mezclan las cartas del modo clasico, el aca se pudre, 5 segundos, Verdad o shot y Yo nunca nunca \nDeberas sacar una carta y cumplir con la consigna que le o les toque.",
+        icon: <FontAwesome name="random" size={50} color="#fff" />,
+        // icon: <GameIcons name="testicons-card-exchange" size={50} color="#fff" />,
+        screen: "Mix"
+    }
 
   
   ];
