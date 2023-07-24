@@ -27,7 +27,6 @@ export default function InfiltrateCardsPart({route}) {
       // Randomly select infiltrate positions
       let arrInfiltrates, arrPlayerIds, intPlayers;
       if (p) {
-          console.log("p",p);
          arrInfiltrates = p.infiltrates;
          arrPlayerIds = p.playerIds
          intPlayers = p.players;
@@ -43,7 +42,6 @@ export default function InfiltrateCardsPart({route}) {
         infiltratePositions.push(arrPlayerIds[randomIndex]);
         arrPlayerIds.splice(randomIndex, 1); // Remove selected index to avoid repeats
       }
-      console.log("infiltratePositions",infiltratePositions);
 
       // Choose a random word for the cards
       const randomWord = words[Math.floor(Math.random() * words.length)];

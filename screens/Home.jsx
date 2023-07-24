@@ -7,6 +7,7 @@ import { useFonts, LilitaOne_400Regular } from '@expo-google-fonts/lilita-one';
 import LottieView from 'lottie-react-native';
 import staticCup from '../assets/animations/staticCupNew.json';
 import particleswhite from '../assets/animations/particleswhite.json';
+import Footer from '../components/General/Footer';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -130,7 +131,7 @@ export default function Home() {
 
       }
       {/* <ThemedButton  name="bruce" type="secondary" style={styles.button}>Opciones</ThemedButton> */}
-
+      <Footer/>
     </View>
   );
 }

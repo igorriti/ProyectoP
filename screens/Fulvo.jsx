@@ -9,6 +9,9 @@ import ExplanationModal from '../components/General/ExplanationModal';
 
 export default function Fulvo({route}) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [clubs, setClubs] = useState((data) => {
+        return clubs.sort(() => Math.random() - 0.5);
+    });
     const [currentImage, setCurrentImage] = useState(require("../assets/images/clubs/VasoPolaco.webp"));
     const [remainingImages, setRemainingImages] = useState((data) => {
         return clubs.sort(() => Math.random() - 0.5)})

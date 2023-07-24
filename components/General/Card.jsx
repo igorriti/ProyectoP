@@ -57,13 +57,15 @@ export default function Card({ panHandlers, cardStyle, nextStyle, item, type, ac
           {item.icon ?
             item.icon
             :
+
             type === "badfriends" ?
               <ThemedButton name="cartman" type="danger" style={styles.button} onPress={action}>Iniciar cuenta atras</ThemedButton>
               :
-              type === "infiltrate" ?
-                <></>
-              :
-                <Timer action={action} /> 
+
+              type === "fivesecondsmode"?
+                <Timer action={action} />
+                :
+                <></> 
           }
         </Animated.View>
 

@@ -21,6 +21,8 @@ import InfiltrateCardsPart from './screens/Infiltrate/InfiltrateCardsPart';
 import InfiltrateTimePart from './screens/Infiltrate/InfiltrateTimePart';
 import HorseRacing from './screens/HorseRacing';
 import Fulvo from './screens/Fulvo';
+import NeverMode from './screens/NeverMode';
+import Test from './screens/Test';
 const Stack = createNativeStackNavigator();
 
 
@@ -33,7 +35,8 @@ export default function App() {
       <StatusBar style="light" backgroundColor="black" />
 
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Home" >
+        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Test" >
+          <Stack.Screen name="Test" component={Test}  options={{ animation: "default"}}/>
           <Stack.Screen
             name="Splash" 
             component={Splash}
@@ -51,8 +54,9 @@ export default function App() {
             <Stack.Screen name="InfiltrateCardsPart" component={InfiltrateCardsPart}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateTimePart" component={InfiltrateTimePart}  options={{ animation: "default"}}/>
           {/* ACA VA EL VERDAD O SHOT Y EL YO NUNCA NUNCA */}
-          <Stack.Screen name="HorseRacing" component={HorseRacing}  options={{ animation: "none"}}/>
-          <Stack.Screen name="Fulvo" component={Fulvo}  options={{ animation: "none"}}/>
+          <Stack.Screen name="NeverMode" component={NeverMode} options={{ animation: "default"}}/>
+          <Stack.Screen name="HorseRacing" component={HorseRacing}  options={{ animation: "default"}}/>
+          <Stack.Screen name="Fulvo" component={Fulvo}  options={{ animation: "default"}}/>
         </Stack.Navigator>
 
 

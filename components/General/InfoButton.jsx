@@ -7,7 +7,6 @@ export default function InfoButton({onPress}) {
 
     const handlePress = () => {
         onPress();
-        console.log("Info button pressed");
     };
     return (
       <TouchableOpacity onPress={handlePress} style={styles.backButton}>

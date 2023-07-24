@@ -11,7 +11,7 @@ const items = [
     },
     {   
         id: 2,
-        name: 'Malos amigos',
+        name: 'Aca se pudre',
         description: "Deberan sacar una carta y cuando el juego lo indique, deberan señalar a la persona que mas se ajuste a la descripcion de la carta." ,
         icon: <GameIcons name="testicons-overkill" size={50} color="#fff" />,
         screen: "BadFriendsMode"  
@@ -49,7 +49,7 @@ const items = [
         name: 'Yo nunca nunca',
         description: "En este juego una persona debera sacar una carta y leer la consigna. Si el jugador ha hecho lo que dice la carta, debera tomar un trago.",
         icon: <GameIcons name="testicons-secret-book" size={50} color="#fff"/>,
-        screen: "ClassicMode"
+        screen: "NeverMode"
     },
     {   id: 8,
         name: 'Carrera de caballos',

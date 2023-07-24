@@ -19,7 +19,7 @@ const cartas = [
         id: 2,
         title: "",
         description: "Mencionar frases conocidas de Ricardo fort, quien repite o no sabe que decir toma",
-        icon : <Gameicon name="testicons-ricky" size={150} color="white" /> //Ricky Gameicon
+        icon : <Gameicon name="testicons-ricky" size={80} color="white" /> //Ricky Gameicon
 
     },
     {
