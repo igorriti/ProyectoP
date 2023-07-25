@@ -6,16 +6,17 @@ import BackgroundMain from "../components/General/BackgroundMain";
 import BackButton from "../components/General/BackButton";
 import { ThemedButton } from 'react-native-really-awesome-button';
 import BetModal from "../components/HorseRacing/BetModal";
-import DropdownSelect from "../components/HorseRacing/DropdownSelect";
+import BetListModal from "../components/HorseRacing/BetListModal";
+import {horses as h} from "../assets/horses"
 
 export default function HorseRacing(){
   const [bid, setBid] = useState(false);
   const [players, setPlayers] = useState([]);
-  const [horses, setHorses] = useState(["Claudio", "Jorge", "Pablo", "Sergio", "Tomas", "LOL", "Juan", "Ernesto"]);
-  const [bets, setBets] = useState({}); 
-  const [modalBetVisible, setModalBetVisible] = useState(true);
-  // const castSession = useCastSession();
-  const [castSession, setCastSession] = useState(false);
+  const [horses, setHorses] = useState(h);
+  const [bets, setBets] = useState([{player: "Jose", horse: "Varela", drinks: 3},{player: "Juan", horse: "Pedro", drinks: 3}]); 
+  const [modalBetVisible, setModalBetVisible] = useState(false);
+  const castSession = useCastSession();
+  // const [castSession, setCastSession] = useState(false);
 
   const channel = useCastChannel('urn:x-cast:testChannel', {
     onMessage: (message) => {
@@ -54,24 +55,50 @@ export default function HorseRacing(){
 
     let message = { msg: 'bet', details: betDetails };
     message = JSON.stringify(message);
-    sendMessageToChannel(message);
-    setBid(true);
+    //ACA MANDO MENSAJE al chromecast
+    // sendMessageToChannel(message);
+    // setBid(true);
 
-    // Update the player bet in the format { playerName: betAmount }
-    setBets(prevBets => ({ ...prevBets, [selectedPlayer]: drinkAmount }));
+    // Save the bet to state
+    setBets([...bets, betDetails]);
   }
 
-  const handlePlayerChange = (player) => {
-    // setSelectedPlayer(player);
-    // setDrinkAmount(bets[player] || 0); // Use the bets from state instead of AsyncStorage
-  }
+  const editBet = ( player,previousHorse, newBet) => {
+    //Mando mensaje para editar la apuesta al chromecast
+    message = { msg: 'editBet', details: {player: player, previousHorse: previousHorse, newBet: newBet} };
+    //SendMessageToChannel(message);
+    const newBets = bets.map((bet) => { 
+      if (bet.player === player && bet.horse === previousHorse) {
+        return newBet;
+      }
+      return bet;
+    }
+    );
+    setBets(newBets);
+  } 
 
+  const deleteBet = (index) => {
+    let message, newBets;
+    console.log(index);
+    if (index > -1) {
+      //Mando mensaje para borrar la apuesta al chromecast
+      message = { msg: 'deleteBet', details: {index: index} };
+      newBets = [...bets];
+      newBets.splice(index, 1);
+    } else {
+      message = { msg: 'deleteBet', details: {index: index} };
+      newBets = []
+    }
+    setBets(newBets);
+
+    //SendMessageToChannel(message);
+
+  }
   useEffect(() => {
     const fetchPlayers = async () => {
       const storedPlayers = await AsyncStorage.getItem('players');
       if (storedPlayers !== null) {
         setPlayers(JSON.parse(storedPlayers));
-        setCastSession(true);
       }
     }
     fetchPlayers();
@@ -82,9 +109,20 @@ export default function HorseRacing(){
     <View style={styles.container}>
       <BackgroundMain/>
       <BackButton/>
-      <Text style={styles.text}>Click on the Cast button</Text>
+      {
+        !castSession &&
+        <Text style={styles.text}>Aprete el boton de Cast</Text>
+
+      }
 
       <CastButton style={{ tintColor: "white", height: 48, width: 48 }} />
+      <BetListModal
+        isVisible={true}
+        onClose={() => setModalBetVisible(false)}
+        bets={bets}
+        editBet={editBet}
+        deleteBet={deleteBet}
+      />
       {castSession &&
         <BetModal
         isVisible={modalBetVisible}
@@ -93,6 +131,7 @@ export default function HorseRacing(){
         horses={horses}
         submitBet={submitBet}
       />
+
       }
       {
         castSession &&

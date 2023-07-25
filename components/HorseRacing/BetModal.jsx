@@ -1,28 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, TextInput, Button } from 'react-native';
-import DropdownSelect from  './DropdownSelect';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import DropDownPicker from 'react-native-dropdown-picker';
+import { SelectList } from 'react-native-dropdown-select-list'
+import InputSpinner from "react-native-input-spinner";
 
 export default function BetModal({ isVisible, onClose, players, horses, submitBet }) {
     const [selectedPlayer, setSelectedPlayer] = useState("");
     const [selectedHorse, setSelectedHorse] = useState("");
-    const [drinkAmount, setDrinkAmount] = useState(0);
+    const [drinkAmount, setDrinkAmount] = useState(3);
     const [modalAnimValue] = useState(new Animated.Value(0));
-    const [playerOpen, setPlayerOpen] = useState(false);
-    const [horseOpen, setHorseOpen] = useState(false);
-    const [playerValue, setPlayerValue] = useState(null)
-    const [horseValue, setHorseValue] = useState(null)
-    const [playerItems, setPlayerItems] = useState(players.map((player) => ({ label: player, value: player })))
-    const [horseItems, setHorseItems] = useState(horses.map((horse) => ({ label: horse, value: horse })))
-    // const onPlayerOpen = useCallback(() => {
-    //     setHorseOpen(false);
-    // }, []);
-
-    // const onHorseOpen = useCallback(() => {
-    //     setPlayerOpen(false);
-    // }, []);
-
+    const [playerData, setPlayerData] = useState(players.map((player) => ({ key: player, value: player })))
+    const [horseData, setHorseData] = useState(horses.map((horse) => ({ key: horse, value: horse })))
     const modalOpacity = modalAnimValue.interpolate({
         inputRange: [0, 1],
         outputRange: [0, 1],
@@ -48,6 +35,10 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
         });
     };
 
+    const handleSubmit = () => {
+        submitBet(selectedPlayer, selectedHorse, drinkAmount);
+        handleClose();
+    }
     const handleClose = () => {
         animateModal(0, onClose);
     };
@@ -61,7 +52,7 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
     }, [isVisible]);
 
     useEffect(() => {
-        setPlayerItems(players.map((player) => ({ label: player, value: player })))
+        setPlayerData(players.map((player) => ({ label: player, value: player })))
     }, []);
     if (!isVisible && modalOpacity.__getValue() === 0) {
         return null;
@@ -72,55 +63,68 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
       <Animated.View style={[styles.modal, modalStyle]}>
         <Text style={styles.title}>Agregar Apuesta</Text>
         <View style={styles.bettingContainer}>
-                {/* <Text style={styles.text}>Seleccione jugador:</Text> */}
-                <DropDownPicker
-                    open={playerOpen}
-                    setOpen={setPlayerOpen}
-                    onOpen={onPlayerOpen}
-                    value={playerValue}
-                    setValue={setPlayerValue}
-                    items={playerItems}
-                    setItems={setPlayerItems}
-                    // onChangeItem={item => setSelectedPlayer(item.value)}         
-                    style={{ marginBottom:20,}}
-                    placeholder='Seleccione jugador'
-                    language='ES'
-                />
-                {/* <Text style={styles.text}>Seleccione Caballo:</Text> */}
-                <View style={{ zIndex: 700, flex:1 }}>
 
-                <DropDownPicker
-                    open={horseOpen}
-                    setOpen={setHorseOpen}
-                    onOpen={onHorseOpen}
-                    value={horseValue}
-                    setValue={setHorseValue}
-                    items={horseItems}
-                    setItems={setHorseItems}
-                    // onChangeItem={item => setSelectedHorse(item.value)}
-                    // zIndex={1}
-                    // zIndexInverse={1}   
-                    theme='LIGHT'      
-                    style={{ backgroundColor: '#fafafa' }}
-                    placeholder='Seleccione caballo'
-                    language='ES'
+            <View style={{width: '90%', marginBottom:20}} > 
+                <SelectList 
+
+                    setSelected={(val) => setSelectedPlayer(val)} 
+                    data={playerData} 
+                    save="value"
+                    placeholder='Seleccione jugador'
+                    searchPlaceholder='Buscar jugador'
+                    notFoundText='Estas muy borracho, ese jugador no existe'
+                    search={true}
+                    maxHeight={100}
                 />
             </View>
+            <View style={{width: '90%'}}> 
+                <SelectList 
+
+                    setSelected={(val) => setSelectedHorse(val)} 
+                    data={horseData} 
+                    save="value"
+                    placeholder='Seleccione caballo'
+                    search={false}
+                    maxHeight={100}
+
+                />
+
+            </View>
             <Text style={styles.text}>Tragos a apostar:</Text>
-            <TextInput 
+            {/* <TextInput 
                 style={styles.input}
                 placeholder='Enter Drink Amount' 
                 onChangeText={text => setDrinkAmount(Number(text))}
                 value={String(drinkAmount)}
                 keyboardType='numeric'
-            />
+            /> */}
+            <View style={{width: '60%', marginBottom:5}} > 
+
+              <InputSpinner
+                  max={15}
+                  min={0}
+                  step={1}
+                  longStep={4}
+
+                  colorMax={"#db1a37"}
+                  colorMin={"#db1a37"}
+                  value={drinkAmount}
+                  onChange={(num) => {
+                      setDrinkAmount(num);
+                  }}
+                  placeholder='0'
+                  maxLength={2}
+                  precision={0}
+                  skin='clean'
+              />
+            </View>
         </View>
 
         <View style={styles.buttonGroup}>
           <TouchableOpacity style={styles.deleteAllButton} onPress={handleClose}>
             <Text style={{color: "white"}}>Cancelar</Text>
           </TouchableOpacity>
-          <Button title='Submit Bet' onPress={() => submitBet(selectedPlayer, selectedHorse, drinkAmount)} />
+          <Button title='Submit Bet' onPress={() => handleSubmit()} />
         </View>
       </Animated.View>
     </View>
@@ -137,10 +141,9 @@ const styles = StyleSheet.create({
   modal: {
     backgroundColor: 'white',
     borderRadius: 10,
-    padding: 20,
+    padding: 15,
     alignItems: 'center',
     width: '80%',
-    height: '100%'
   },
   title: {
     fontSize: 24,

@@ -35,8 +35,7 @@ export default function App() {
       <StatusBar style="light" backgroundColor="black" />
 
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Test" >
-          <Stack.Screen name="Test" component={Test}  options={{ animation: "default"}}/>
+        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="HorseRacing" >
           <Stack.Screen
             name="Splash" 
             component={Splash}
@@ -53,7 +52,7 @@ export default function App() {
           <Stack.Screen name="Infiltrate" component={InfiltrateMode}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateCardsPart" component={InfiltrateCardsPart}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateTimePart" component={InfiltrateTimePart}  options={{ animation: "default"}}/>
-          {/* ACA VA EL VERDAD O SHOT Y EL YO NUNCA NUNCA */}
+          
           <Stack.Screen name="NeverMode" component={NeverMode} options={{ animation: "default"}}/>
           <Stack.Screen name="HorseRacing" component={HorseRacing}  options={{ animation: "default"}}/>
           <Stack.Screen name="Fulvo" component={Fulvo}  options={{ animation: "default"}}/>

@@ -26,10 +26,10 @@ export default function Test() {
     }}>
 
         <SelectList 
-                setSelected={(val) => setSelected(val)} 
-                data={data} 
-                save="value"
-            />
+            setSelected={(val) => setSelected(val)} 
+            data={data} 
+            save="value"
+        />
     </View>
   );
 }
