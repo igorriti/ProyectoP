@@ -20,7 +20,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const { width } = Dimensions.get('screen');
 const SWIPE_THRESHOLD = 0.25 * width;
 
-const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
+const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type, mix}) => {
     const animation = useRef(new Animated.ValueXY()).current;
     const opacity = useRef(new Animated.Value(1)).current;
     const scale = useRef(new Animated.Value(0.9)).current;
@@ -237,7 +237,7 @@ const SwipableCards = ({ cards,setCards, renderAdditionalComponent, type}) => {
                  : undefined;
 
               return (
-                  <Card panHandlers={panHandlers} cardStyle={cardStyle} nextStyle={nextStyle} item={item} key={item.id} type={type} action={renderAdditionalComponent}/>
+                  <Card panHandlers={panHandlers} cardStyle={cardStyle} nextStyle={nextStyle} item={item} key={item.id} type={type} action={renderAdditionalComponent} mix={mix}/>
               );
         })}
         {

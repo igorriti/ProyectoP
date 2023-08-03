@@ -58,9 +58,9 @@ export default function BetListModal({ isVisible, onClose, bets, deleteBet, edit
 
     };
     const handleEditBet = () => {
-        const newBets = [bets];
-        newBets[selectedIndex].horse = editHorse;
-        newBets[selectedIndex].drinks = editDrinks;
+        // const newBets = [bets];
+        // newBets[selectedIndex].horse = editHorse;
+        // newBets[selectedIndex].drinks = editDrinks;
         const newBet = {
             player: editPlayer,
             horse: editHorse,
@@ -136,7 +136,7 @@ export default function BetListModal({ isVisible, onClose, bets, deleteBet, edit
             <View style={styles.addPlayerModal}>
                 <Text style={{fontSize: 20,fontWeight: 'bold', textAlign: 'center'}}>Editar apuesta</Text>
                 <Text style={{fontSize: 16,fontWeight: 'bold', textAlign: 'center', marginBottom:10}}>{editPlayer} aposto por</Text>
-                <View style={{width: '60%', marginBottom:20}} > 
+                <View style={{width: '80%', marginBottom:20}} > 
                     <SelectList 
                         setSelected={(val) => setEditHorse(val)} 
                         data={horseData} 
@@ -171,9 +171,13 @@ export default function BetListModal({ isVisible, onClose, bets, deleteBet, edit
                     <TouchableOpacity style={styles.deleteAllButton} onPress={handleCloseEditBet}>
                     <Text style={{color: "white"}}>Cancelar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.deleteAllButton, {backgroundColor : "#6a87fc"}]} onPress={handleEditBet}>
-                    <Text style={{color: "white"}}>Confirmar</Text>
-                    </TouchableOpacity>
+                    {
+                      editHorse !== previousHorse &&
+                      <TouchableOpacity style={[styles.deleteAllButton, {backgroundColor : "#6a87fc"}]} onPress={handleEditBet}>
+                      <Text style={{color: "white"}}>Confirmar</Text>
+                      </TouchableOpacity>
+                    }
+
 
                 </View>
                 </View>

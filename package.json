@@ -18,6 +18,7 @@
     "clamp": "^1.0.1",
     "expo": "~48.0.18",
     "expo-av": "~13.2.1",
+    "expo-build-properties": "^0.8.3",
     "expo-dev-client": "~2.2.1",
     "expo-font": "~11.1.1",
     "expo-splash-screen": "~0.18.2",

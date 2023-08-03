@@ -8,7 +8,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { FontAwesome5 } from '@expo/vector-icons';
-export default function Card({ panHandlers, cardStyle, nextStyle, item, type, action }) {
+export default function Card({ panHandlers, cardStyle, nextStyle, item, type, action, mix}) {
   const spin = useSharedValue(0);
   const [flipped, setFlipped] = React.useState(false);
 
@@ -58,7 +58,8 @@ export default function Card({ panHandlers, cardStyle, nextStyle, item, type, ac
             item.icon
             :
 
-            type === "badfriends" ?
+
+            type === "badfriends" || (mix && !item.title) ?
               <ThemedButton name="cartman" type="danger" style={styles.button} onPress={action}>Iniciar cuenta atras</ThemedButton>
               :
 

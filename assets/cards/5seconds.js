@@ -366,7 +366,7 @@ const cartas = [
         id: 66,
         title: "",
         title: "Nombra 3...",
-        description: "Milagros que Jesus hizo (se ponia re catolica la cosa no?)",
+        description: "Milagros que Jesus hizo",
     },
     {
         id: 67,
@@ -783,6 +783,52 @@ const cartas = [
         title: "Nombra 3...",
         description: "Frases para no levantar en el boliche",
     },
+    {
+        id: 148,
+        title: "Nombra 3...",
+        description: "Cosas que no deberías decirle a tu jefe",
+    },
+    {
+        id: 149,
+        title: "Nombra 3...",
+        description: "Cosas que no deberías decirle a tu pareja",
+    },
+    {
+        id: 150,
+        title: "Nombra 3...",
+        description: "Cosas que no deberías decirle a tu suegra",
+    },
+    {
+        id: 151,
+        title: "Nombra 3...",
+        description: "Paises que empiezan con T",
+    },
+    {
+        id: 152,
+        title: "Nombra 3...",
+        description: "Tipos de tragos",
+    },
+    {
+        id: 153,
+        title: "Nombra 3...",
+        description: "Cortes de carne",
+    },
+    {
+        id: 154,
+        title: "Nombra 3...",
+        description: "Organos del cuerpo humano",
+    },
+    {
+        id: 155,
+        title: "Nombra 3...",
+        description: "Cosas que le dirias a una cita",
+    },
+    {
+        id: 156,
+        title: "Nombra 3...",
+        description: "Formas de hacer papas"
+    },
+    
     
     
 

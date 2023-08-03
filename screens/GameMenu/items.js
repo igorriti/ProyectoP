@@ -13,7 +13,7 @@ const items = [
         id: 2,
         name: 'Aca se pudre',
         description: "Deberan sacar una carta y cuando el juego lo indique, deberan señalar a la persona que mas se ajuste a la descripcion de la carta." ,
-        icon: <GameIcons name="testicons-overkill" size={50} color="#fff" />,
+        icon: <GameIcons name="testicons-pyromaniac" size={50} color="#fff" />,
         screen: "BadFriendsMode"  
     },
     {   
@@ -40,14 +40,14 @@ const items = [
     
     {   id: 6,
         name: 'Verdad o shot',
-        description: "Los jugadores deberan sacar una carta y responder la pregunta que le toque. Si no quiere responder, debera tomar un trago." ,
+        description: "Los jugadores deberan sacar una carta y responder la pregunta que le toque. Si no quiere responder, debera tomar un trago. No seas salame y si una persona se siente incomoda, no la presiones y no arruines el ambiente." ,
         icon: <GameIcons name="testicons-booze" size={50} color="#fff" />,
-        screen: "InfiltrateTimePart"  
+        screen: "TruthOrShot"  
     },
     {   
         id: 7,
         name: 'Yo nunca nunca',
-        description: "En este juego una persona debera sacar una carta y leer la consigna. Si el jugador ha hecho lo que dice la carta, debera tomar un trago.",
+        description: "En este juego una persona debera sacar una carta y leer la consigna. Los que hayan hecho lo que dice la carta, deberan tomar un trago.",
         icon: <GameIcons name="testicons-secret-book" size={50} color="#fff"/>,
         screen: "NeverMode"
     },

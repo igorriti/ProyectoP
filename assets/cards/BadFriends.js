@@ -88,7 +88,7 @@ const cartas = [
     },
     {
         id: 22,
-        description: "Un amigo en común necesita con urgencia dadores de sangre. ¿Quién dice que fue y no fue?         ",
+        description: "Un amigo en común necesita con urgencia dadores de sangre. \n ¿Quién dice que fue y no fue?         ",
     },
     {
         id: 23,
@@ -120,357 +120,286 @@ const cartas = [
     },
     {
         id: 30,
-        title: "",
         description: "Uno de nosotros debutó a los 11. ¿Quién? ",
     },
     {
         id: 31,
-        title: "",
         description: "¿A quien nunca le dejarias un hijo tuyo a cargo? ",
     },
     {
         id: 32,
-        title: "",
         description: "Quien es el mas probable de vivir en la calle en un futuro?",
     },
     {
         id: 33,
-        title: "",
         description: "Uno de nosotros es muy inmaduro. ¿Quién?",
     },
     {
         id: 34,
-        title: "",
         description: "Quien de aca se cree Albert Einstein y no lo es?",
     },
     {
         id: 35,
-        title: "",
         description: "Si todos nos dedicáramos a vivir del stand up, ¿quién se muere de hambre primero?         ",
     },
     {
         id: 36,
-        title: "",
         description: "Vuelve la colimba. ¿Quién se pega un tiro en el pie para no hacerla? ",
     },
     {
         id: 37,
-        title: "",
         description: "Somos los biólogos más capaces del planeta. ¿Quién se inventa un virus para después vender la cura? ",
     },
     {
         id: 38,
-        title: "",
         description: "A quien te daria menos pena pegarle una trompada en la cara?",
     },
     {
         id: 39,
-        title: "",
-        description: "Quien de aca vendria una reliquia familiar para salir de joda?",
+        description: "Quien de aca venderia una reliquia familiar para salir de joda?",
     },
     {
         id: 40,
-        title: "",
         description: "Quien de nosotros se cree superior a los demas?",
     },
     {
         id: 41,
-        title: "",
         description: "Estás en una situación complicada. ¿A quién no le pedís consejo? ",
     },
     {
         id: 42,
-        title: "",
         description: "Quien es el que mas arrepentido puede estar de jugar a este juego?",
     },
     {
         id: 43,
-        title: "",
         description: "¿A quién de nosotros no te animarías a hacer enojar?",
     },
     {
         id: 44,
-        title: "",
         description: "De un día para el otro, el mundo se queda sin Internet. ¿Quién se mata primero?",
     },
     {
         id: 45,
-        title: "",
         description: "Te llama un amigo para preguntarte si te interesa ser tu propio jefe. Quien es?",
     },
     {
         id: 46,
-        title: "",
         description: "Uno de nosotros tiene un hijo no reconocido. ¿Quién? ",
     },
     {
         id: 47,
-        title: "",
         description: "Uno de nosotros tiene una doble vida. ¿Quién? ",
     },
     {
         id: 48,
-        title: "",
         description: "El día que la ciencia descubra cómo agregarnos otro set de genitales, quién es el primero en la fila?  ",
     },
     {
         id: 49,
-        title: "",
         description: "Uno de nosotros, secretamente, le desea la muerte a todos los demás. ¿Quién?",
     },
     {
         id: 50,
-        title: "",
         description: "Nos despertamos en una isla desierta sin ningún tipo de alimento. ¿Quién propone que nos comamos a uno de nosotros? ",
     },
     {
         id: 51,
-        title: "",
         description: "A todos nos da miedo subirnos al auto cuando maneja... ",
     },
     {
         id: 52,
-        title: "",
         description: "Quien es el mas probable de salir de un examen diciendo que le fue mal para despues terminar sacando 10?",
     },
     {
         id: 53,
-        title: "",
         description: "Necesitamos a alguien para comandar a nuestras tropas. Por favor, que no sea...",
     },
     {
         id: 54,
-        title: "",
         description: "Fuimos apóstoles. ¿Quién fue Judas?",
     },
     {
         id: 55,
-        title: "",
         description: "Uno de nosotros tiene una cuenta secreta en OnlyFans. Quién? ",
     },
     {
         id: 56,
-        title: "",
         description: "Viajamos en el tiempo, quien es el primero en romper la linea temporal?",
     },
     {
         id: 57,
-        title: "",
         description: "Nos ofrecen 1000 dolares por cada cucharada de caca que nos comamos. Quien se hace rico?",
     },
     {
         id: 58,
-        title: "",
         description: "Estamos en un avión sin control y quedan paracaídas para todos excepto uno. ¿Quién es el primero en agarrar un paracaídas y salvarse? ",
     },
     {
         id: 59,
-        title: "",
         description: "Somos miembros de una banda de forajidos buscados en el Lejano Oeste. ¿La cabeza de quién vale menos? ",
     },
     {
         id: 60,
-        title: "",
         description: "Fui asesinado. ¿Quién me mató?",
     },
     {
         id: 61,
-        title: "",
         description: "Nos tiramos todos en paracaídas. ¿A quién no se le abre? ",
     },
     {
         id: 62,
-        title: "",
         description: "Uno de nosotros cree que el mundo sería mejor sin salud pública. Quién? ",
     },
     {
         id: 63,
-        title: "",
         description: "Entramos a twitter y vemos que uno de nosotros es Tendencia. ¿Quién? ",
     },
     {
         id: 64,
-        title: "",
         description: "Somos candidatos a presidente. ¿Quién consigue menos votos?",
     },
     {
         id: 65,
-        title: "",
         description: "Si todos fuésemos presidentes de un país, ¿Quién sería el primero en imponer la pena de muerte? ",
     },
     {
         id: 66,
-        title: "",
         description: "¿Quién se gana una enorme fortuna en el casino y desaparece de nuestras vidas por completo?",
     },
     {
         id: 67,
-        title: "",
         description: "Satán nos ofrece cumplir todos nuestros deseos a cambio de nuestra alma. ¿Quién agarra? "        ,
     },
     {
         id: 68,
-        title: "",
         description: "Uno de nosotros está enamorado secretamente de otro. ¿Quién? ",
     },
     {
         id: 69,
-        title: "",
         description: "Cada uno publica un libro con su propia autobiografía. ¿Cuál te interesa menos?         ",
     },
     {
         id: 70,
-        title: "",
         description: "¿Quién de nosotros se masturbó más veces el año pasado? ",
     },
     {
         id: 71,
-        title: "",
         description: "¿Con quién de nosotros JAMÁS participarías en un trío? ",
     },
     {
         id: 72,
-        title: "",
         description: "Uno de ustedes quiere tener sexo conmigo. ¿Quién? " ,
     },
     {
         id: 73,
-        title: "",
         description: "Uno de nosotros es MUY irresponsable a la hora de cuidarse durante el sexo. ¿Quién? ",
     },
     {
         id: 74,
-        title: "",
         description: "¿Quién de nosotros JAMÁS participaría en una orgía?",
     },
     {
         id: 75,
-        title: "",
         description: "Uno de nosotros lo exita la idea de acostarse con personas casadas. ¿A quién? ",
     },
     {
         id: 75,
-        title: "",
         description: "Ya es posible la clonación humana. ¿Quién se clona para poder coger consigo mismo?",
     },
     {
         id: 76,
-        title: "",
         description: "Los genitales de uno de nosotros son el molde de juguetes sexuales. ¿Los de quién? ",
     },
     {
         id: 77,
-        title: "",
         description: 'La estrella del porno, Dirty sanchez, esta entre nosotros... Quien es?',  
     },
     {
         id: 78,
-        title: "",
         description: "A uno de nosotros les va el voyeurismo, quien?",
     },
     {
         id: 79,
-        title: "",
-        description: "Quien le robaria la pension asu abuela para pagarse unos porros?",
+        description: "Quien le robaria la pension a su abuela para pagarse unos porros?",
     },
     {
         id: 80,
-        title: "",
         description: "Tenes una emergencia, a quien no llamas porque no te va a atender?",
     },
     {
         id: 81,
-        title: "",
         description: "Quien miente mas en sus anecdotas?",
     },
     {
         id: 82,
-        title: "",
         description: "Quien de aca es mas probable que sea reemplazado por una inteligencia artificial?",
     },
     {
         id: 83,
-        title: "",
         description: "Uno de aca tiene mas pelos en los sobacos que en la cabeza, y es...",
     },
     {
         id: 84,
-        title: "",
         description: "Uno de nosotros entra a la casa de Gran hermano, quien es?",
     },
     {
         id: 85,
-        title: "",
         description: "Alguno de aca no va a terminar la noche, quien es?",
     },
     {
         id: 86,
-        title: "",
         description: "Quien siempre quiere jugar juegos estupidos de cartas?",
     },
     {
         id: 87,
-        title: "",
         description: "Uno de nosotros muere y a su funeral no va casi nadie, quien es?",
     },
     {
         id: 88,
-        title: "",
         description: "Todos siempre escuchamos la misma anecdota de...",
     },
     {
         id: 89,
-        title: "",
         description: "Alguien de aca siempre se quiere hacer el distinto con la musica, y es...",
     },
     {
         id: 90,
-        title: "",
         description: "La probabilidad de morir por un rayo es de 1 entre un millon. A quien es probable que veamos electrocutado?",
     },
     {
         id: 91,
-        title: "",
         description: "Estas volviendo a tu casa y un piquete te impide el paso. Quien de aca te saluda con un cartel en mano?",
     },
     {
         id: 92,
-        title: "",
         description: "Mañana vamos a ver las fotos de hoy, quien va a salir mas comprometido?",
     },
     {
         id: 93,
-        title: "",
         description: "Sale un trend nuevo en tik tok, quien es el primero en romper los huevos para grabarlo?",
     },
     {
         id: 94,
-        title: "",
         description: "Nunca le presentaria mi novio/a a...",
     },
     {
         id: 95,
-        title: "",
         description: "Yo se que ... quiere conmigo",
     },
     {
         id: 96,
-        title: "",
         description: "Es un milagro que todavia no se haya muerto ...",
     },
     {
         id: 97,
-        title: "",
         description: "Echaria de la casa a ...",
     },
     {
         id: 98,
-        title: "",
         description: "Ni la ciencia puede explica como salio de la cueva ...",
     },
     {
         id: 99,
-        title: "",
         description: "... se garcharia a un familiar mio si pudiera",
     },
     

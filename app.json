@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "pola",
+    "name": "Vaso polaco",
     "slug": "pola",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,7 +18,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.labs.vasopolaco"
+      "package": "com.flodelabs.vasopolaco"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -29,6 +29,14 @@
       }
     },
     "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true
+          }
+        }
+      ],
        ["@config-plugins/react-native-google-cast",
       {
         "iosReceiverAppId": "5174EE82",

@@ -1,4 +1,3 @@
-// ClassicMode.js
 import React, {useState} from 'react';
 import cartas from '../assets/cards/NeverHaveIEver';
 import SwipableCards from '../components/General/SwipableCards';

@@ -9,43 +9,46 @@ import ExplanationModal from '../components/General/ExplanationModal';
 
 export default function Fulvo({route}) {
     const [modalVisible, setModalVisible] = useState(false);
-    const [clubs, setClubs] = useState((data) => {
-        return clubs.sort(() => Math.random() - 0.5);
+    const [clubState, setClubState] = useState(() => {
+      return clubs.sort(() => Math.random() - 0.5);
     });
+  
     const [currentImage, setCurrentImage] = useState(require("../assets/images/clubs/VasoPolaco.webp"));
-    const [remainingImages, setRemainingImages] = useState((data) => {
+    const [remainingImages, setRemainingImages] = useState(() => {
         return clubs.sort(() => Math.random() - 0.5)})
     const [imageTitle, setImageTitle] = useState(null);
     const [showTitle, setShowTitle] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [infoText,setInfoText] = useState(route.params.description);
-    const [name, setName] = useState(route.params.name);
+    const [infoText,setInfoText] = useState(route.params.description? route.params.description : "No hay descripción");
+    const [name, setName] = useState(route.params.name? route.params.name : "No hay nombre");
     const intervalRef = useRef(null);
   
     const newClub = () => {
-        setShowTitle(false);
-        // Obten un subconjunto de imágenes al azar para la animación
-        const animationImages = remainingImages.sort(() => 0.5 - Math.random()).slice(0, 15);
-      
-        let i = 0;
-        intervalRef.current = setInterval(() => {
+      setShowTitle(false);
+      // Obten un subconjunto de imágenes al azar para la animación
+      const animationImages = remainingImages.sort(() => 0.5 - Math.random()).slice(0, 15);
+  
+      let i = 0;
+      intervalRef.current = setInterval(() => {
           setCurrentImage(animationImages[i].path);
           i+=1;
           if (i >= animationImages.length) {
-            clearInterval(intervalRef.current);
-            const randomNum = Math.floor(Math.random() * remainingImages.length);
-            const newImage = remainingImages[randomNum];
-            setIsAnimating(true);
-
-            setImageTitle(newImage.title);  // Mueve esta línea aquí
-            setCurrentImage(newImage.path);  // Y esta línea después de setImageTitle
-            setRemainingImages(remainingImages.filter((img, index) => index !== randomNum));
+              clearInterval(intervalRef.current);
+              const randomNum = Math.floor(Math.random() * remainingImages.length);
+              const newImage = remainingImages[randomNum];
+              setIsAnimating(true);
+  
+              setImageTitle(newImage.title);  // Mueve esta línea aquí
+              setCurrentImage(newImage.path);  // Y esta línea después de setImageTitle
+              // setRemainingImages(remainingImages.filter((img, index) => index !== randomNum)); // Remove this line
           }
-    
-        }, 120);
-        setImageTitle(animationImages[i].title);
-        setIsAnimating(false);
-      };
+  
+      }, 120);
+      
+      setImageTitle(animationImages[i].title);
+      setIsAnimating(false);
+  };
+  
     
       
       
@@ -69,7 +72,7 @@ export default function Fulvo({route}) {
   
         <ThemedButton name="bruce" type="primary" style={{marginTop:30}} onPress={newClub}> Sacar club </ThemedButton>
         {
-            currentImage != clubs[0].path && imageTitle && isAnimating &&
+            currentImage != clubState[0].path && imageTitle && isAnimating &&
                 <ThemedButton name="bruce" type="secondary" style={{marginTop:30}} onPress={revealTitle}> Revelar título </ThemedButton>
         }
         <ExplanationModal isVisible={modalVisible} onClose={()=>setModalVisible(false)} title={name} content={infoText}/>

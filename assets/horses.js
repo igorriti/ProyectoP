@@ -1,3 +1,3 @@
 export default horses = [
-    "Juan", "Jose", "Miguel", "Varela", "Pedro"
+    "Miguel McQueen", "Caballo Bandido", "Blue Label", "Beda Beder", "Marisa Bombastic"
 ]

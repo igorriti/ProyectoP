@@ -1,7 +1,20 @@
-//I want to get the cards from 5Seconds, BadFriends and Cards and mix them together randomly
-import cartas from "./Cards";
-import {cartas as cartas3} from "./BadFriends";
+import Cards from "./Cards";
+import BadFriends from "./BadFriends";
+import Truth from "./Truth";
+import NeverHaveIEver from "./NeverHaveIEver";
 
-let mix = cartas.concat(cartas3);
-mix = (mix.sort(() => Math.random() - 0.5));
-export default mix;
+function fisherYatesShuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+  
+let allCards = [...Cards, ...BadFriends, ...Truth, ...NeverHaveIEver];
+allCards = fisherYatesShuffle(allCards);
+export default allCards;

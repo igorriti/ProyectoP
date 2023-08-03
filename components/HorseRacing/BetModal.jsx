@@ -2,13 +2,13 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, TextInput, Button } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import InputSpinner from "react-native-input-spinner";
-
-export default function BetModal({ isVisible, onClose, players, horses, submitBet }) {
+import {Ionicons} from '@expo/vector-icons';
+export default function BetModal({ isVisible, onClose, players, horses, submitBet, bets }) {
     const [selectedPlayer, setSelectedPlayer] = useState("");
     const [selectedHorse, setSelectedHorse] = useState("");
     const [drinkAmount, setDrinkAmount] = useState(3);
-    const [modalAnimValue] = useState(new Animated.Value(0));
-    const [playerData, setPlayerData] = useState(players.map((player) => ({ key: player, value: player })))
+    const [modalAnimValue] = useState(new Animated.Value(0)); 
+    const [playerData, setPlayerData] = useState(players.map((player) => ({ key: player, value: player, disabled: bets.some(bet => bet.player === player)? true : false })))
     const [horseData, setHorseData] = useState(horses.map((horse) => ({ key: horse, value: horse })))
     const modalOpacity = modalAnimValue.interpolate({
         inputRange: [0, 1],
@@ -37,6 +37,9 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
 
     const handleSubmit = () => {
         submitBet(selectedPlayer, selectedHorse, drinkAmount);
+        setSelectedPlayer("");
+        setSelectedHorse("");
+        setDrinkAmount(3);
         handleClose();
     }
     const handleClose = () => {
@@ -52,16 +55,26 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
     }, [isVisible]);
 
     useEffect(() => {
-        setPlayerData(players.map((player) => ({ label: player, value: player })))
-    }, []);
-    if (!isVisible && modalOpacity.__getValue() === 0) {
+      players.map((player) => ({ key: player, value: player, disabled: bets.some(bet => bet.player === player)? true : false }))    }
+    , []);
+
+    useEffect(() => {
+      setPlayerData(players.map((player) => ({ 
+          key: player, 
+          value: player, 
+          disabled: bets.some(bet => bet.player === player) ? true : false 
+      })));
+    }, [players, bets]);
+    
+    
+      if (!isVisible && modalOpacity.__getValue() === 0) {
         return null;
     }
 
   return (
     <View style={styles.overlay}>
       <Animated.View style={[styles.modal, modalStyle]}>
-        <Text style={styles.title}>Agregar Apuesta</Text>
+        <Text style={styles.title}>Realizar apuesta</Text>
         <View style={styles.bettingContainer}>
 
             <View style={{width: '90%', marginBottom:20}} > 
@@ -124,7 +137,13 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
           <TouchableOpacity style={styles.deleteAllButton} onPress={handleClose}>
             <Text style={{color: "white"}}>Cancelar</Text>
           </TouchableOpacity>
-          <Button title='Submit Bet' onPress={() => handleSubmit()} />
+          {
+            selectedHorse !== "" && selectedPlayer !="" && drinkAmount > 0 &&
+              <TouchableOpacity style={styles.submit} onPress={handleSubmit}>
+                <Ionicons name="checkmark-done" size={20} color="white" />
+                <Text style={{color: "white"}}>Listo</Text>
+              </TouchableOpacity>
+          }
         </View>
       </Animated.View>
     </View>
@@ -187,4 +206,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
+  submit: {
+    backgroundColor: "#00b3a6",
+    padding: 10,
+    borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  }
 });
