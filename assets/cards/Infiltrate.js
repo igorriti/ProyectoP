@@ -74,7 +74,7 @@
     "argentina", "brasil", "méxico", "canadá", "estados unidos", "francia", "italia", "españa", "reino unido", "alemania",
     "australia", "japón", "china", "india", "sudáfrica", "rusia", "corea del sur", "colombia", "chile", "perú",
     "ecuador", "costa rica", "cuba", "egipto", "grecia", "turquía", "noruega", "suecia", "dinamarca", "finlandia",
-    "brunei", "israel", "países bajos", "panamá", "filipinas", "polonia", "portugal", "qatar", "singapur", "suiza",
+    "ucrania", "israel", "países bajos", "panamá", "filipinas", "polonia", "portugal", "qatar", "singapur", "suiza",
 
     // Nombres de provincias argentinas (20 palabras)
     "buenos aires", "córdoba", "mendoza", "santa fe", "salta", "tucumán", "neuquén", "entre ríos", "chubut", "jujuy",

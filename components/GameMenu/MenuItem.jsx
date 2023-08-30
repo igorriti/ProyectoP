@@ -20,7 +20,7 @@ export default function MenuItem({ item, index, handleItemPress, loadAnimation, 
     };
 
     const onPress = async () => {
-      if(item.id == 5 || item.id == 8) {
+      if(item.id == 4 || item.id == 7) {
         try {
           const timestamp = await AsyncStorage.getItem("timestamp");
           if (!timestamp || isExpired(timestamp)) {
@@ -87,16 +87,25 @@ export default function MenuItem({ item, index, handleItemPress, loadAnimation, 
 
     return (
       <Animated.View style={itemStyle}>
-        <TouchableOpacity style={styles.item} onLongPress={onLongPress} onPress={onPress}>
-          {!fontsLoaded ? (
-            <AntDesign name="loading2" size={50} color="#fff" />
-          ) : (
-            item.icon
-          )}
-          <Text style={styles.itemText}>{item.name}</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={item.name === 'Proximamente' ? styles.comingSoonItem : styles.item} 
+            onPress={item.name === 'Proximamente' ? () => {} : onPress}
+            onLongPress={item.name === 'Proximamente' ? () => {} : onLongPress}
+            >
+              {!fontsLoaded ? (
+                  <AntDesign name="loading2" size={50} color="#fff" />
+              ) : item.name === 'Proximamente' ? (
+                  <Text style={styles.comingSoonText}>Proximamente...</Text>
+              ) : item.name !== 'Proximamente'&&(
+                  <>  
+                      
+                      {item.icon}
+                      <Text style={styles.itemText}>{item.name}</Text>
+                  </>
+              )}
+          </TouchableOpacity>
       </Animated.View>
-    );
+  );
+  
 }
 
 const styles = StyleSheet.create({
@@ -120,4 +129,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center',
   },
+  comingSoonItem: {
+    backgroundColor: '#222',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    margin: 10,
+    width: "100%",
+    borderRadius: 15,
+    borderColor: '#fff',
+  },
+  comingSoonText: {
+      color: '#aaa',
+      fontSize: 15,
+      textAlign: 'center',
+      fontStyle: 'italic',
+  }
+
 });

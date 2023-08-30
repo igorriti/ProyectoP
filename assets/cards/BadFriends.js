@@ -402,7 +402,242 @@ const cartas = [
         id: 99,
         description: "... se garcharia a un familiar mio si pudiera",
     },
-    
+    {
+        id: 100,
+        description: "Quien estaria de nosotros estaria con alguines del mismo sexo pero despues diria que \"no es bi\"? ",
+    },
+    {
+        id: 101,
+        description: "La persona mas infumable para ver una pelicula es...",
+    },
+    {
+        id: 102,
+        description: "No le contaria ningun secreto a...",
+    },
+    {
+        id: 103,
+        description: "La persona con la higiene mas cuestionable es...",
+    },
+    {
+        id: 104,
+        description: "La persona que mas le cuesta decir \"te quiero\" es...",
+    },
+    {
+        id: 105,
+        description: "La persona que mas le cuesta entender una consigna es...",
+    },
+    {
+        id: 106,
+        description: "Quien siempre hace las preguntas mas boludas? ",
+    },
+    {
+        id: 107,
+        description: "El mas insoportable con el futbol es...",
+    },
+    {
+        id: 108,
+        description: "Siempre hay uno que quiere cortar una juntada para jugar al truco y es...",
+    },
+    {
+        id: 109,
+        description: "Quien es el mas \"mala leche\"?",
+    },
+    {
+        id: 110,
+        description: "Quien es sencillamente un sorete?",
+    },
+    {
+        id: 111,
+        description: "... anda de relacion en relacion",
+    },
+    {
+        id: 112,
+        description: "... piensa que todos le estan chamuyando",
+    },
+    {
+        id: 113,
+        description: "Quien cambia de cancion cada 30 segundos?",
+    },
+    {
+        id: 114,
+        description: "Uno de nosotros sera alcoholico en un futuro y es...",
+    },
+    {
+        id: 115,
+        description: "El mas probable en terminar en una estafa piramidal es...",
+    },
+    {
+        id: 116,
+        description: "Quien haria cosas bastante disgutantes por solo 100 dolares? ",
+    },
+    {
+        id: 117,
+        description: "La mama de quien es una t**la?",
+    },
+    {
+        id: 118,
+        description: "Me gustaria que el papa de... sea mi suggar daddy",
+    },
+    {
+        id: 119,
+        description: "Quien se rie por cualquier boludes?",
+    },
+    {
+        id: 120,
+        description: "Quien tiene mas miedo de jugar a este juego?",
+    },
+    {
+        id: 121,
+        description: "Quien pierde sus cosas todo el tiempo?",
+    },
+    {
+        id: 122,
+        description: "... tiene gustos de viejo",
+    },
+    {
+        id: 123,
+        description: "Quien tiene una excusa para todo?",
+    },
+    {
+        id: 124,
+        description: "Quien siempre cuesta la misma historia que no le causa a nadie?",
+    },
+    {
+        id: 125,
+        description: "Quien es la persona mas falsa? ",
+    },
+    {
+        id: 126,
+        description: "Quien se hace swiftie simplemente para chamuyarse a alguien?",
+    },
+    {
+        id: 127,
+        description: "La persona mas facil de convencer es...",
+    },
+    {
+        id: 128,
+        description: "Quien es el mas \"cara dura\"?",
+    },
+    {
+        id: 129,
+        description: "A quien le tenes que avisar 3 cuadras antes que estas llegando para que salga?",
+    },
+    {
+        id: 130,
+        description: "Quien seria un pesimo presidente?",
+    },
+    {
+        id: 131,
+        description: "Quien seria muy malo cuñado o cuñada?",
+    },
+    {
+        id: 132,
+        description: "Quien se esta arrepintiendo de haber venido?",
+    },
+    {
+        id: 133,
+        description: "La persona que discute todo, incluso aun sabiendo que esta equivocado es...",
+    },
+    {
+        id: 134,
+        description: "El mas vende humo de todos es...",
+    },
+    {
+        id: 135,
+        description: "Quien es mas probable que termine limpiando baños?",
+    },
+    {
+        id: 136,
+        description: "El mas probable en unirse al club de los 27 es...",
+    },
+    {
+        id: 137,
+        description: "El mas probable de poner un nombre muy feo a su hijo es...",
+    },
+    {
+        id: 138,
+        description: "La persona mas probable de dormir con alguien en la primera cita es...",
+    },
+    {
+        id: 139,
+        description: "... estaria con su jefe/a o profesor/a por un ascenso o una buena nota",
+    },
+    {
+        id: 140,
+        description: "Es muy problable encontrarse a ... en un club de strippers ",
+    },
+    {
+        id: 141,
+        description: "La persona mas gatera es...",
+    },
+    {
+        id: 142,
+        description: "Quien es mas problable de reirse en un funeral",
+    },
+    {
+        id: 143,
+        description: "Quien es capaz de chamuyarse a alguien en un velorio?",
+    },
+    {
+        id: 144,
+        description: "Quien es capaz d echamuyarse a otra persona en una cita?",
+    },
+    {
+        id: 145,
+        description: "Quien es mas probable que tape el baño?",
+    },
+    {
+        id: 146,
+        description: "Quien hace los peores mates? ",
+    },
+    {
+        id: 147,
+        description: "Quien es mas probable que se olvide de tu cumpleaños?",
+    },
+    {
+        id: 148,
+        description: "Quien cocina los peores asados?",
+    },
+    {
+        id: 149,
+        description: "Quien quiere ser el centro de atencion todo el tiempo?",
+    },
+    {
+        id: 150,
+        description: "Vienen los aliens y nos piden de ofrenda a uno de nosotros para investigarlo, a quien le damos?",
+    },
+    {
+        id: 151,
+        description: "... es un genio malvado",
+    },
+    {
+        id: 152,
+        description: "Quien tendria sexo en publico sin ningun problema?",
+    },
+    {
+        id: 153,
+        description: "Quien es mas probable que se haga un tatuaje de un meme?",
+    },
+    {
+        id: 154,
+        description: "Quien es mas probable que sea un asesino serial?",
+    },
+    {
+        id: 155,
+        description: "Quien es mas probable que sea un pesimo padre/madre?",
+    },
+    {
+        id: 156,
+        description: "Quien es mas probable que sea un pesimo novio/a?",
+    },
+    {
+        id: 157,
+        description: "Quien es mas probable que sea un muy mal jefe?",
+    },
+    {
+        id: 158,
+        description: "La purga es real, quien es el primero en festejarlo?",
+    },
       
 ]
 

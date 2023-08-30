@@ -34,7 +34,7 @@ const cartas = [
     {
         id: 7,
         title: "Nombra 3...",
-        description: "Partes del cuerpo donde no molesta el dolor",
+        description: "Partes del cuerpo donde te harias un piercing",
     },
     {
         id: 8,
@@ -49,7 +49,7 @@ const cartas = [
     {
         id: 10,
         title: "Nombra 3...",
-        description: "Palabras que decis a menudo y no deberias decir delante de nenes",
+        description: "Frases que decis a menudo y no deberias decir delante de nenes",
     },
     {
         id: 11,
@@ -300,7 +300,7 @@ const cartas = [
         id: 55,
         title: "",
         title: "Nombra 3...",
-        description: "vece en las que el dolor es un placer",
+        description: "dolores que pueden causarte placer",
     },
     {
         id: 56,
@@ -796,7 +796,7 @@ const cartas = [
     {
         id: 150,
         title: "Nombra 3...",
-        description: "Cosas que no deberías decirle a tu suegra",
+        description: "Regalos que devolverías",
     },
     {
         id: 151,
@@ -828,6 +828,106 @@ const cartas = [
         title: "Nombra 3...",
         description: "Formas de hacer papas"
     },
+    {
+        id: 157,
+        title: "Nombra 3...",
+        description: "Cosas en las que no te sentarias",
+    },
+    {
+        id: 158,
+        title: "Nombra 3...",
+        description: "Maneras de curar la resaca",
+    },
+    {
+        id: 159,
+        title: "Nombra 3...",
+        description: "Palabras que pueden ser malpensadas",
+    },
+    {
+        id: 160,
+        title: "Nombra 3...",
+        description: "Cosas que no deberías hacer en un auto",
+    },
+    {
+        id: 161,
+        title: "Nombra 3...",
+        description: "Razones por las que terminarias esposado",
+    },
+    {
+        id: 162,
+        title: "Nombra 3...",
+        description: "Cosas que no deberías hacer en un ascensor",
+    },
+    {
+        id: 163,
+        title: "Nombra 3...",
+        description: "Cosas que haces cuando nadie te ve",
+    },
+    {
+        id: 164,
+        title: "Nombra 3...",
+        description: "Cosas que no deberías subir a las redes sociales",
+    },
+    {
+        id: 165,
+        title: "Nombra 3...",
+        description: "Tipos de tortas",
+    },
+    {
+        id: 166,
+        title: "Nombra 3...",
+        description: "Cosas pegajosas",
+    },
+    {
+        id: 167,
+        title: "Nombra 3...",
+        description: "Cosas que son tu debilidad",
+    },
+    {
+        id: 168,
+        title: "Nombra 3...",
+        description: "Cosas picantes",
+    },
+    {
+        id: 169,
+        title: "Nombra 3...",
+        description: "Olores raros que te gustan",
+    },
+    {
+        id: 170,
+        title: "Nombra 3...",
+        description: "Razones para cortar con alguien",
+    },
+    {
+        id: 171,
+        title: "Nombra 3...",
+        description: "Tatuajes que te harías",
+    },
+    {
+        id: 172,
+        title: "Nombra 3...",
+        description: "Frases que dirias durante el sexo",
+    },
+    {
+        id: 173,
+        title: "Nombra 3...",
+        description: "Personas muertas que te gustaría conocer",
+    },
+    {
+        id: 174,
+        title: "Nombra 3...",
+        description: "Manera de vengarte de un ex",
+    },
+    {
+        id: 175,
+        title: "Nombra 3...",
+        description: "Razones para no acostarte con alguien",
+    },
+    {
+        id: 176,
+        title: "Nombra 3...",
+        description: "Taylor Switf Eras",
+    }
     
     
     

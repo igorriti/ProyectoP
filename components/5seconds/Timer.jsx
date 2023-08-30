@@ -8,17 +8,17 @@ const Timer = ({action}) => {
 
   const toggleTimer = () => {
     if (running) {
-      resetTimer();
+      resetTimer(1000);
     }
     setRunning(!running);
   };
 
-  const resetTimer = () => {
-    //Wait 1 second before reseting the timer
+  const resetTimer = (delay) => {
+    //Wait 2 second before reseting the timer
     setTimeout(() => {
       
       setSeconds(5);
-    }, 2000);
+    }, delay);
   };
 
   const playSound = async () => {
@@ -40,7 +40,7 @@ const Timer = ({action}) => {
     } else if (seconds === 0) {
       playSound();
       action()
-      resetTimer();
+      resetTimer(2500);
     }
   }, [running, seconds]);
 
@@ -53,9 +53,9 @@ const Timer = ({action}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.timer}>{displayTime(seconds)}</Text>
-      <TouchableOpacity style={[styles.button , {backgroundColor: running ? "#db1a37" : "#6a87fc"}] } onPress={toggleTimer}>
+      <TouchableOpacity style={[styles.button , {backgroundColor: running ? "#db1a37" : "#6a87fc"}] } onPressIn={()=>toggleTimer()}>
         
-        <Text style={styles.buttonText }>{running ? <Ionicons name="stop" size={30}/>  : <Ionicons name="play" size={30}/> }</Text>
+        <View style={styles.buttonText }>{running ? <Ionicons name="stop" size={30} color="white"/>  : <Ionicons name="play" size={30}  color="white"/> }</View>
       </TouchableOpacity>
     </View>
   );

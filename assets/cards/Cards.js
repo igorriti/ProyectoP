@@ -528,7 +528,7 @@ const cartas = [
         id: 81,
         title: "Camaleon",
         description: "Imita a otro jugador. El primero en adivinar elige a alguien para que tome",
-        icon: <Gameicon name="testicons-chameleon" size={80} color="white" />
+        icon: <Gameicon name="testicons-chameleon-glyph" size={80} color="white" />
     },
     {
         id: 82,
@@ -743,7 +743,7 @@ const cartas = [
     },
     {
         id: 117,
-        title: "La musica muro hace 80 años",
+        title: "La musica murio hace 80 años",
         description: "Si tu cancion favorita es un reggaeton, toma 2 tragos y anda a escuchar musica de verdad",
         icon: <Gameicon name="testicons-musical-notes" size={80} color="white" />
     },
@@ -799,7 +799,7 @@ const cartas = [
         id: 126,
         title: "",
         description: "Si te llamas Juan, Agustin, Tomas, Sofia, Camila o  Milagros toma 2 tragos en honor a la poca originalidad de tus viejos",
-        icon: <Gameicon name="testicons-baby" size={80} color="white" />
+        icon: <Gameicon name="testicons-baby-face" size={80} color="white" />
     },
     {
         id: 127,

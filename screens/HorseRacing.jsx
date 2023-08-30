@@ -12,6 +12,9 @@ import horses from "../assets/horses"
 import {FontAwesome} from '@expo/vector-icons';
 import WinnersModal from "../components/HorseRacing/WinnersModal";
 export default function HorseRacing(){
+
+  const sessionManager = GoogleCast.getSessionManager();
+
   const [bid, setBid] = useState(false);
   const [players, setPlayers] = useState(["Juan", "Jose", "Miguel"]);
   const [horsesNames, setHorsesNames] = useState(horses);
@@ -157,6 +160,11 @@ export default function HorseRacing(){
       }
     }
     fetchPlayers();
+
+    return() => {
+      sessionManager.endCurrentSession(true);
+      setBid(false);
+    }
   }, []);
   
   useEffect(() => {

@@ -15,7 +15,7 @@ import DrinkDetails from './screens/Drinks/DrinkDetails';
 import ClassicMode from './screens/ClassicMode';
 import BadFriendsMode from './screens/BadFriendsMode';
 import FiveSecondsMode from './screens/FiveSecondsMode';
-import RuRoulette from './screens/RuRoulette';
+// import RuRoulette from './screens/RuRoulette';
 import InfiltrateMode from './screens/Infiltrate/InfiltrateMode';
 import InfiltrateCardsPart from './screens/Infiltrate/InfiltrateCardsPart';
 import InfiltrateTimePart from './screens/Infiltrate/InfiltrateTimePart';
@@ -36,7 +36,7 @@ export default function App() {
       <StatusBar style="light" backgroundColor="black" />
 
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Home" >
+        <Stack.Navigator  screenOptions={{headerShown: false}} initialRouteName="Splash" >
           <Stack.Screen
             name="Splash" 
             component={Splash}
@@ -49,7 +49,7 @@ export default function App() {
           <Stack.Screen name="ClassicMode" component={ClassicMode}  options={{ animation: "default"}}/>
           <Stack.Screen name="BadFriendsMode" component={BadFriendsMode}  options={{ animation: "default"}}/>
           <Stack.Screen name="FiveSecondsMode" component={FiveSecondsMode}  options={{ animation: "default"}}/>
-          <Stack.Screen name="RuRoulette" component={RuRoulette}  options={{ animation: "default"}}/>
+          {/* <Stack.Screen name="RuRoulette" component={RuRoulette}  options={{ animation: "default"}}/> */}
           <Stack.Screen name="Infiltrate" component={InfiltrateMode}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateCardsPart" component={InfiltrateCardsPart}  options={{ animation: "default"}}/>
             <Stack.Screen name="InfiltrateTimePart" component={InfiltrateTimePart}  options={{ animation: "default"}}/>

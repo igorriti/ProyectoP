@@ -2,7 +2,7 @@
   "expo": {
     "name": "Vaso polaco",
     "slug": "pola",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -11,14 +11,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.labs.vasopolaco"
+      "bundleIdentifier": "com.flodelabs.vasopolaco"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.flodelabs.vasopolaco"
+      "package": "com.flodelabs.vasopolaco",
+      "versionCode": 4
     },
     "web": {
       "favicon": "./assets/favicon.png"
