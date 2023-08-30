@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Vaso polaco",
+    "name": "Vaso Polaco",
     "slug": "pola",
-    "version": "1.0.3",
+    "version": "1.0.0", 
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -11,7 +11,9 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.flodelabs.vasopolaco"
+      "bundleIdentifier": "com.flodelabs.vasopolaco",
+      "bitcode": false  
+
     },
     "android": {
       "adaptiveIcon": {

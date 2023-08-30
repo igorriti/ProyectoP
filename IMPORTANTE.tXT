@@ -1,0 +1,2 @@
+       "version": "1.0.0", 
+ // Cambiar a 1.0.4 para subir a play store
