@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import Splash from './screens/Splash';
 import Home from './screens/Home';
+import OnBoardingScreen from './screens/OnBoardingScreen/OnBoardingScreen';
 import GameMenu from './screens/GameMenu/GameMenu';
 
 import Drinks from './screens/Drinks/Drinks';
@@ -24,6 +25,7 @@ import Fulvo from './screens/Fulvo';
 import NeverMode from './screens/NeverMode';
 import TruthOrShot from './screens/TruthOrShot';
 import Mix from './screens/Mix';
+import OooAaaMode from './screens/OooAaaMode';
 const Stack = createNativeStackNavigator();
 
 
@@ -44,7 +46,7 @@ export default function App() {
           <Stack.Screen name="Home" component={Home}  options={{ animation: "none"}}/>
           <Stack.Screen name="Drinks" component={Drinks}  options={{ animation: "default"}}/>
           <Stack.Screen name="DrinkDetails" component={DrinkDetails}  options={{ animation: "default"}}/>
-
+          <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen}  options={{ animation: "default"}}/>
           <Stack.Screen name="GameMenu" component={GameMenu}  options={{ animation: "default"}}/>
           <Stack.Screen name="ClassicMode" component={ClassicMode}  options={{ animation: "default"}}/>
           <Stack.Screen name="BadFriendsMode" component={BadFriendsMode}  options={{ animation: "default"}}/>
@@ -58,6 +60,7 @@ export default function App() {
           <Stack.Screen name="HorseRacing" component={HorseRacing}  options={{ animation: "default"}}/>
           <Stack.Screen name="Fulvo" component={Fulvo}  options={{ animation: "default"}}/>
           <Stack.Screen name="Mix" component={Mix}  options={{ animation: "default"}}/>
+          <Stack.Screen name="OooAaaMode" component={OooAaaMode}  options={{ animation: "default"}}/>
         </Stack.Navigator>
 
 

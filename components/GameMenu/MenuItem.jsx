@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     width: "100%",
+    height: 150,
     borderRadius: 15,
     borderColor: '#fff',
   },

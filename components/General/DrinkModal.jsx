@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 import AnimatedLottieView from 'lottie-react-native';
-import beer from '../../assets/animations/beer.json';
+import beer from '../../assets/animations/wrong.json';
 import boom from '../../assets/animations/boom.json';
 export default function DrinkModal({ isVisible, setVisible, explosion}) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -80,7 +80,7 @@ export default function DrinkModal({ isVisible, setVisible, explosion}) {
     <Animated.View style={[styles.modal, { opacity: fadeAnim }]}>
 
 
-      <Animated.Text style={[styles.go, { opacity: explosion ? textFade : 1 }]}>Toma!</Animated.Text>
+      <Animated.Text style={[styles.go, { opacity: explosion ? textFade : 1 }]}>Perdiste!</Animated.Text>
       <AnimatedLottieView
         ref={beerAnimRef}
 

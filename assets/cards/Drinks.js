@@ -319,7 +319,58 @@ const drinks = [
         photo: require('../../assets/images/drinks/40.webp'),
         ingredients: ['Seltzer: 1 lata', 'Fruta helada(Frutilla recomendada)', 'Hielo: al gusto'],
         steps: ['Llena un vaso con hielo', 'Añade el seltzer y la fruta helada', 'Disfruta'],
-      }
+      },
+      {
+        id: 41,
+        title: 'Granadina Splash',
+        description: 'Un cóctel sin alcohol con el dulce toque de la granadina.',
+        photo: require('../../assets/images/drinks/41.webp'),
+        ingredients: ['Jugo de naranja: 1/2 vaso', 'Granadina: 1/4 vaso', 'Agua con gas: 1/4 vaso', 'Hielo: al gusto', 'Rodaja de naranja: 1 (para decorar)'],
+        steps: ['Llena un vaso alto con hielo', 'Añade el jugo de naranja y la granadina', 'Completa con agua con gas y remueve suavemente', 'Decora con una rodaja de naranja en el borde del vaso', 'Disfruta de este refrescante cóctel sin alcohol con el toque dulce de la granadina.'],
+      },
+      {
+        id: 42,
+        title: 'Mocktail de Frutas Tropicales',
+        description: 'Un cóctel tropical sin alcohol que te transportará a la playa.',
+        photo: require('../../assets/images/drinks/42.webp'),
+        ingredients: ['Jugo de piña: 1/2 vaso', 'Jugo de naranja: 1/4 vaso', 'Jugo de maracuyá: 1/4 vaso', 'Hielo: al gusto'],
+        steps: ['Llena una copa con hielo', 'Mezcla los jugos de piña, naranja y maracuyá', 'Vierte la mezcla en la copa y remueve', 'Decora con una rodaja de naranja'],
+      },
+      {
+        id: 43,
+        title: 'Mojito de Menta y Limón',
+        description: 'Un refrescante mojito sin alcohol con un toque cítrico.',
+        photo: require('../../assets/images/drinks/43.webp'),
+        ingredients: ['Jugo de limón: 1/2 vaso', 'Agua con gas: 1/2 vaso', 'Hojas de menta fresca: 6-8', 'Azúcar: 2 cucharaditas', 'Hielo: al gusto'],
+        steps: ['En un vaso alto, mezcla el jugo de limón y el agua con gas', 'Añade las hojas de menta y el azúcar', 'Revuelve bien', 'Agrega hielo y decora con una ramita de menta y una rodaja de limón'],
+      },
+      {
+        id: 44,
+        title: 'Piña Colada Sin Alcohol',
+        description: 'Una versión sin alcohol de la clásica piña colada.',
+        photo: require('../../assets/images/drinks/44.webp'),
+        ingredients: ['Jugo de piña: 1/2 vaso', 'Leche de coco: 1/4 vaso', 'Crema de coco: 1/4 vaso', 'Hielo: al gusto'],
+        steps: ['En una licuadora, mezcla el jugo de piña, la leche de coco y la crema de coco', 'Añade hielo y mezcla hasta obtener una consistencia suave', 'Sirve en un vaso alto y decora con una rodaja de piña'],
+      },
+      {
+        id: 45,
+        title: 'Cóctel de Frambuesa y Limón',
+        description: 'Una bebida refrescante con el equilibrio perfecto entre dulce y ácido.',
+        photo: require('../../assets/images/drinks/45.webp'),
+        ingredients: ['Jugo de limón: 1/2 vaso', 'Zumo de frambuesa: 1/4 vaso', 'Agua con gas: 1/4 vaso', 'Azúcar: 2 cucharaditas', 'Hielo: al gusto'],
+        steps: ['En un vaso alto, mezcla el jugo de limón, el zumo de frambuesa y el agua con gas', 'Añade azúcar al gusto y revuelve hasta que se disuelva', 'Agrega hielo y decora con una rodaja de limón y algunas frambuesas'],
+      },
+
+      {
+        id: 46,
+        title: 'Fresco de Sandía',
+        description: 'Una bebida refrescante y dulce de sandía.',
+        photo: require('../../assets/images/drinks/46.webp'),
+        ingredients: ['Jugo de sandía: 1 vaso', 'Jugo de limón: 1/4 vaso', 'Agua con gas: 1/4 vaso', 'Hielo: al gusto'],
+        steps: ['En una licuadora, mezcla el jugo de sandía y el jugo de limón', 'Añade el agua con gas y mezcla brevemente', 'Sirve en un vaso alto con hielo'],
+      },
+
+
       // {
       //   id: 37,
       //   title: 'Lavender Haze',

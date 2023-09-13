@@ -7,6 +7,7 @@ import { useFonts, LilitaOne_400Regular } from '@expo-google-fonts/lilita-one';
 import LottieView from 'lottie-react-native';
 import staticCup from '../assets/animations/staticCupNew.json';
 import particleswhite from '../assets/animations/particleswhite.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../components/General/Footer';
 
 export default function Home() {
@@ -19,29 +20,27 @@ export default function Home() {
   const cupRotation = useRef(new Animated.Value(0)).current;
 
   const [isAnimationLoaded, setIsAnimationLoaded] = useState(false);
-  const onLongPressButton1 = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(cupRotation, {
-          toValue: 45,
-          duration: 500, // Adjust the duration of the rotation animation
-          useNativeDriver: true,
-        }),
-        Animated.timing(cupRotation, {
-          toValue: -45,
-          duration: 1000, // Adjust the duration of the rotation animation
-          useNativeDriver: true,
-        }),
-        Animated.timing(cupRotation, {
-          toValue: 0,
-          duration: 500, // Adjust the duration of the rotation animation
-          useNativeDriver: true,
-        }),
-      ]),
-      {
-        iterations: 1, // You can adjust the number of times the sequence will be repeated
+  const checkOnboarding = async () => {
+    try {
+      const value = await AsyncStorage.getItem('onboardingCompleted');
+      if (value !== null) {
+        return JSON.parse(value);
       }
-    ).start();
+    } catch (error) {
+      console.error("Error fetching 'onboardingCompleted'", error);
+    }
+    return false;
+  };
+  
+
+
+  const handlePlayButton = async () => {
+    const hasSeenOnboarding = await checkOnboarding();
+    if (!hasSeenOnboarding) {
+      navigation.navigate("OnBoardingScreen");
+    } else {
+      navigation.navigate("GameMenu");
+    }
   };
   
   useEffect(() => {
@@ -124,7 +123,7 @@ export default function Home() {
       </View>
       {isAnimationLoaded && 
             <>
-              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]} onPress={()=>navigation.navigate("GameMenu")}>Jugar</ThemedButton>
+              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]}  onPress={handlePlayButton}>Jugar</ThemedButton>
               <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]} onPress={()=>navigation.navigate("Drinks")}>Tragos</ThemedButton>
 
             </>

@@ -54,7 +54,7 @@ export default function GameMenu() {
         <BackgroundMain/>
         {/* <BackButton/> */}
         <View style={styles.innerContainer}>
-          <TouchableOpacity onPress={()=>navigation.goBack()} style={{ padding: 5}}>
+          <TouchableOpacity onPress={()=>navigation.navigate("Home")} style={{ padding: 5}}>
             <Ionicons name="chevron-back" size={30} color="white" />
           </TouchableOpacity>
           <Text style={styles.title}>Juegos</Text>
