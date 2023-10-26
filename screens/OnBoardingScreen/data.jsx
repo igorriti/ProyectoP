@@ -24,7 +24,7 @@ const data = [
     id: 3,
     animation: require('../../assets/animations/question.json'),
     text: 'Polaquitos',
-    subText: 'Nuestra unidad de medida "Polaquito" implica una prenda que el usuario debe cumplir. Puede ser un trago, un baile, comer algo, un beso o simplemente nada. Ustedes eligen! ',
+    subText: 'Nuestra unidad de medida "Polaquito" implica una prenda que el usuario debe cumplir. Puede ser una prenda, un baile, comer algo, un beso o simplemente nada. Ustedes eligen! ',
     textColor: '#eee',
     backgroundColor: '#111',
   },

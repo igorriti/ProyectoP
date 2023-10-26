@@ -12,8 +12,8 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.flodelabs.vasopolaco",
-      "bitcode": false  
-
+      "bitcode": false,
+      "buildNumber": "4"
     },
     "android": {
       "adaptiveIcon": {

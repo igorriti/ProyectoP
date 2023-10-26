@@ -124,13 +124,13 @@ export default function Home() {
       {isAnimationLoaded && 
             <>
               <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]}  onPress={handlePlayButton}>Jugar</ThemedButton>
-              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]} onPress={()=>navigation.navigate("Drinks")}>Tragos</ThemedButton>
+              {/* <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]} onPress={()=>navigation.navigate("Drinks")}>Tragos</ThemedButton> */}
 
             </>
 
       }
       {/* <ThemedButton  name="bruce" type="secondary" style={styles.button}>Opciones</ThemedButton> */}
-      <Footer/>
+      {/* <Footer/> */}
     </View>
   );
 }

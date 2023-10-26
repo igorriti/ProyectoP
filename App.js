@@ -10,8 +10,8 @@ import Home from './screens/Home';
 import OnBoardingScreen from './screens/OnBoardingScreen/OnBoardingScreen';
 import GameMenu from './screens/GameMenu/GameMenu';
 
-import Drinks from './screens/Drinks/Drinks';
-import DrinkDetails from './screens/Drinks/DrinkDetails';
+// import Drinks from './screens/Drinks/Drinks';
+// import DrinkDetails from './screens/Drinks/DrinkDetails';
 
 import ClassicMode from './screens/ClassicMode';
 import BadFriendsMode from './screens/BadFriendsMode';
@@ -44,8 +44,8 @@ export default function App() {
             component={Splash}
           />
           <Stack.Screen name="Home" component={Home}  options={{ animation: "none"}}/>
-          <Stack.Screen name="Drinks" component={Drinks}  options={{ animation: "default"}}/>
-          <Stack.Screen name="DrinkDetails" component={DrinkDetails}  options={{ animation: "default"}}/>
+          {/* <Stack.Screen name="Drinks" component={Drinks}  options={{ animation: "default"}}/> */}
+          {/* <Stack.Screen name="DrinkDetails" component={DrinkDetails}  options={{ animation: "default"}}/> */}
           <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen}  options={{ animation: "default"}}/>
           <Stack.Screen name="GameMenu" component={GameMenu}  options={{ animation: "default"}}/>
           <Stack.Screen name="ClassicMode" component={ClassicMode}  options={{ animation: "default"}}/>
