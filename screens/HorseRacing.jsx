@@ -42,7 +42,7 @@ export default function HorseRacing(){
             const bet = bets[j];
 
             if (bet.player == winner && bet.horse == message.horse) {
-              winnerText = `${winner} reparte ${bet.drinks*2} polaquitos`
+              winnerText = `${winner} reparte ${bet.drinks*2} P\'s`
               winnersround.push(winnerText);
             }
           }
@@ -318,7 +318,7 @@ export default function HorseRacing(){
       <WinnersModal
         isVisible={modalWinnersVisible}
         onClose={() => {setModalWinnersVisible(false), setWinners([])}} 
-        winners={winners.length == 0? ["Nadie gana, reciben todos 1 polaquito"] : winners} />
+        winners={winners.length == 0? ["Nadie gana, reciben todos 1 P"] : winners} />
 
     </View>
   );

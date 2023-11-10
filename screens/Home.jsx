@@ -3,21 +3,22 @@ import { View, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ThemedButton as OriginalThemedButton } from "react-native-really-awesome-button";
 const ThemedButton = React.memo(OriginalThemedButton); //REVISAR ESTO
-import { useFonts, LilitaOne_400Regular } from '@expo-google-fonts/lilita-one';
+import { useFonts } from '@expo-google-fonts/lilita-one';
 import LottieView from 'lottie-react-native';
-import staticCup from '../assets/animations/staticCupNew.json';
+import ProyectoP from '../assets/animations/ProyectoP.json';
 import particleswhite from '../assets/animations/particleswhite.json';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Footer from '../components/General/Footer';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Cooper from '../assets/fonts/COOPBL.ttf';
 
 export default function Home() {
   const navigation = useNavigation();
   const textOpacity = useRef(new Animated.Value(0)).current;
   const button1Opacity = useRef(new Animated.Value(0)).current;
-  const button2Opacity = useRef(new Animated.Value(0)).current
-  const button1TranslateY = useRef(new Animated.Value(20)).current;
-  const button2TranslateY = useRef(new Animated.Value(20)).current;
-  const cupRotation = useRef(new Animated.Value(0)).current;
+  const button1TranslateY = useRef(new Animated.Value(40)).current;
+  const frankyTranslateX = useRef(new Animated.Value(-3020)).current; // Adjust this value
+
 
   const [isAnimationLoaded, setIsAnimationLoaded] = useState(false);
   const checkOnboarding = async () => {
@@ -42,45 +43,52 @@ export default function Home() {
       navigation.navigate("GameMenu");
     }
   };
-  
-  useEffect(() => {
+  // const animateFranky = () => {
+  //   // Reset position to the start
+  //   frankyTranslateX.setValue(-200); 
 
+  //   // Animate to the end
+  //   Animated.timing(frankyTranslateX, {
+  //     toValue: 400,  // assuming 400 is off the right screen
+  //     duration: 6000,  // duration of the animation
+  //     useNativeDriver: true
+  //   }).start(() => {
+  //     if (hallo === "franky") {
+  //       setHallo("vampi");
+  //     } else {
+  //       setHallo("franky");
+  //     }
+
+  //   });
+  // }
+
+  useEffect(() => {
+    // Animate text opacity
     Animated.timing(textOpacity, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: true,
-    }).start();
-    Animated.sequence([
+    }).start(() => {
+      // Once the text animation is done, start the button animations
       Animated.parallel([
-      Animated.timing(button1Opacity, {
-        toValue: 1,
-        duration: 500, // Adjust the duration of the button animation
-        useNativeDriver: true,
-        delay: 1000, // Adjust the delay to start the button animation after the text animation
-      }),
-      Animated.timing(button1TranslateY, {
-        toValue: 0,
-        duration: 500, // Adjust the duration of the button animation
-        useNativeDriver: true,
-      }),
-      ]),
-      Animated.parallel([
-        Animated.timing(button2Opacity, {
+        Animated.timing(button1Opacity, {
           toValue: 1,
-          duration: 500, // Adjust the duration of the button animation
+          duration: 2500,
           useNativeDriver: true,
         }),
-        Animated.timing(button2TranslateY, {
+        Animated.timing(button1TranslateY, {
           toValue: 0,
-          duration: 500, // Adjust the duration of the button animation
+          duration: 2500,
           useNativeDriver: true,
         }),
-      ]),
-    ]).start();
-  }, [textOpacity]);
+      ]).start();
+    });
+ 
+  }, []);
+  
 
   const [fontsLoaded] = useFonts({
-    LilitaOne_400Regular,
+    'Cooper-Black': Cooper,
   });
 
   if (!fontsLoaded) {
@@ -88,7 +96,7 @@ export default function Home() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
       <Animated.View style={[styles.animationContainer, {opacity: textOpacity}]}>
         <LottieView
@@ -98,32 +106,30 @@ export default function Home() {
           loop={true}
         />
       </Animated.View>
-      <View style={styles.animationContainer}>
-        <Animated.View style={styles.animationTransform}>
-          <LottieView
-            style={styles.lottieView}
-            source={staticCup}
-            autoPlay
-            loop={false}
-            cacheStrategy='strong'
-            onAnimationFinish={() => setIsAnimationLoaded(true)} // Add this line
 
-          />
-        </Animated.View>
-      </View>
-      <View style={styles.animationContainer}>
-        <Animated.View style={styles.textTransform}>
+      
+      <View style={styles.titleContainer}>
           <Animated.Text
             style={[styles.text, { opacity: textOpacity }]}
-            numberOfLines={2}
           >
-            VASO{'\n'}POLACO
+            Proyecto
           </Animated.Text>
-        </Animated.View>
+          <Animated.View style={styles.animationTransform}  >
+            <LottieView
+              style={styles.lottieView}
+              source={ProyectoP}
+              autoPlay
+              loop={false}
+              cacheStrategy='strong'
+              onAnimationFinish={() => setIsAnimationLoaded(true)} // Add this line
+
+            />
+          </Animated.View>
+        {/* </Animated.View> */}
       </View>
       {isAnimationLoaded && 
             <>
-              <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button1Opacity, transform: [{ translateY: button1TranslateY }]}]}  onPress={handlePlayButton}>Jugar</ThemedButton>
+              <ThemedButton  name="bruce" type="secondary" style={{marginTop:100, opacity: button1Opacity, transform: [{ translateY: button1TranslateY},{scale:0.95}]}}  onPress={handlePlayButton}>Jugar</ThemedButton>
               {/* <ThemedButton  name="bruce" type="secondary" style={[styles.button,{opacity: button2Opacity, transform: [{ translateY: button2TranslateY }]}]} onPress={()=>navigation.navigate("Drinks")}>Tragos</ThemedButton> */}
 
             </>
@@ -131,7 +137,9 @@ export default function Home() {
       }
       {/* <ThemedButton  name="bruce" type="secondary" style={styles.button}>Opciones</ThemedButton> */}
       {/* <Footer/> */}
-    </View>
+
+      
+    </SafeAreaView>
   );
 }
 
@@ -140,8 +148,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     position: 'relative',
+  },
+  titleContainer : {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '20%',
   },
   animationContainer: {
     position: 'absolute',
@@ -154,37 +167,39 @@ const styles = StyleSheet.create({
   },
   animationTransform: {
     transform: [
-      { translateX: -100 },
-      { translateY: -200 },
-      { scale: 0.65 },
+      { scale: 1.3},
     ],
   },
-  textTransform: {
-    transform: [
-      { translateX: 50 },
-      { translateY: -200 },
-    ],
-  },
+
   lottieView: {
-    width: 500,
-    height: 500,
+    width: 300,
     backgroundColor: 'transparent',
   },
   lottieBackground: {
     width: 400,
     height: 700,
-    //Flip the animation horizontally
     
     transform: [ { rotate: '90deg' }, { scale: 1.05 }],
     backgroundColor: 'transparent',
   },
   text: {
-    fontFamily: 'LilitaOne_400Regular',
-    fontSize: 50,
+    fontFamily: 'Cooper-Black',
+    fontSize: 60,
     color: '#fff',
     textAlign: 'center',
   },
-  button: {
-    marginTop: 50,
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 150,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
+  // franky: {
+  //   width: 150,
+  //   height: 150,
+  //   backgroundColor: 'transparent',
+  // },
 });

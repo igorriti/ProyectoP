@@ -103,7 +103,7 @@ export default function BetModal({ isVisible, onClose, players, horses, submitBe
                 />
 
             </View>
-            <Text style={styles.text}>Polaquitos a apostar:</Text>
+            <Text style={styles.text}>P\'s a apostar:</Text>
             {/* <TextInput 
                 style={styles.input}
                 placeholder='Enter Drink Amount' 

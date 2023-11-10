@@ -91,6 +91,12 @@ export default function MenuItem({ item, index, handleItemPress, loadAnimation, 
             onPress={item.name === 'Proximamente' ? () => {} : onPress}
             onLongPress={item.name === 'Proximamente' ? () => {} : onLongPress}
             >
+              {/* Render "New" banner if item has a 'new' attribute */}
+              {item.new && (
+                <View style={styles.newBanner}>
+                  <Text style={styles.newBannerText}>Nuevo!</Text>
+                </View>
+              )}
               {!fontsLoaded ? (
                   <AntDesign name="loading2" size={50} color="#fff" />
               ) : item.name === 'Proximamente' ? (
@@ -145,6 +151,26 @@ const styles = StyleSheet.create({
       fontSize: 15,
       textAlign: 'center',
       fontStyle: 'italic',
-  }
-
+  },
+  newBanner: {
+    position: 'absolute',
+    top: 0,
+    right: -10,
+    backgroundColor: 'red',
+    padding: 5,
+    width: 70,
+    height: 40, // Add height equal to width to make it round
+    borderRadius: 30, // Half of width and height
+    borderWidth: 3,  // Spike thickness
+    borderColor: '#fff', // Spike color
+    transform: [{ rotate: '35deg' }],
+    zIndex: 1,
+    justifyContent: 'center', // Center text horizontally
+    alignItems: 'center', // Center text vertically
+  },
+  newBannerText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });

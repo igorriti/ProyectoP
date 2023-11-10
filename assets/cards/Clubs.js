@@ -123,7 +123,7 @@ const images = [
   { title: 'Tiro Federal', path: require('../images/clubs/Tiro_Federal.webp') },
   { title: 'Union San Vicente', path: require('../images/clubs/Union_San_Vicente.webp') },
   { title: 'Unión', path: require('../images/clubs/Union.webp') },
-  { title: 'Vaso Polaco', path: require('../images/clubs/VasoPolaco.webp') },
+  { title: 'Proyecto P', path: require('../images/clubs/VasoPolaco.webp') },
   { title: 'Velez Sarsfield', path: require('../images/clubs/Velez_Sarsfield.webp') },
   { title: 'Victoriano Arenas', path: require('../images/clubs/Victoriano_Arenas.webp') },
   { title: 'Villa Dálmine', path: require('../images/clubs/Villa_Dalmine.webp') },

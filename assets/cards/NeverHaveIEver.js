@@ -1736,7 +1736,7 @@ export default cartas = [
     {
         id: 290,
         title: "Yo nunca nunca...",
-        description: "he descargado Vaso Polaco.",
+        description: "he descargado Proyecto P.",
         
     },
     {

@@ -67,6 +67,7 @@ const RenderItem = ({index, x, item}) => {
           style={{
             width: SCREEN_WIDTH * 0.9,
             height: SCREEN_WIDTH * 0.9,
+            transform: [{scale: index==0? 1.15 : 0.9}],
           }}
           autoPlay
           loop

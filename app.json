@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Vaso Polaco",
+    "name": "Proyecto P",
     "slug": "pola",
     "version": "1.0.0", 
     "orientation": "portrait",
@@ -13,7 +13,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.flodelabs.vasopolaco",
       "bitcode": false,
-      "buildNumber": "4"
+      "buildNumber": "5"
     },
     "android": {
       "adaptiveIcon": {
